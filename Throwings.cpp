@@ -50,3 +50,6 @@ FloatRect Throwings::getArea() {
 		return ddong.getGlobalBounds();
 	}
 };
+bool Throwings::get_is_food(void) {
+	return (this->is_food);
+};

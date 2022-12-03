@@ -22,14 +22,14 @@ void Tamagotchi::update(Throwings_Gen& _throwings, Score& _score)
 	if (this->getHitted() == true) {
 		if (clock.getElapsedTime().asMilliseconds() > 500) {
 			
-			assert(img.loadFromFile(""));
+			assert(img.loadFromFile("img/tamagotchi_img.png"));
 			tamagotchi.setTexture(img);
 
 			this->setHitted(false);
 		}
 	}
-	if (_throwings.checkHit(tamagotchi.getGlobalBounds()) == true) {
-		assert(img.loadFromFile(""));
+	if (_throwings.checkHit(tamagotchi.getGlobalBounds(), _score) == true) {
+		assert(img.loadFromFile("img/tamagotchi_img.png"));
 		tamagotchi.setTexture(img);
 		//_sound.play();
 		this->setHitted(true);

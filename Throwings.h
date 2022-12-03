@@ -32,19 +32,20 @@ public:
 		: x(_x), speed(_speed), is_food(_is_food)
 	{
 		if (this->is_food == true) {
-			assert(food_img.loadFromFile(""));
+			assert(food_img.loadFromFile("img/food_img.png"));
 			food.setTexture(food_img);
 			food.setPosition(_x, 0.0f);
 		}
 		else if (this->is_food == false) {
-			assert(ddong_img.loadFromFile(""));
-			ddong.setTexture(food_img);
+			assert(ddong_img.loadFromFile("img/ddong_img.png"));
+			ddong.setTexture(ddong_img);
 			ddong.setPosition(_x, 0.0f);
 		}
 	}
 	void update(Score&);
 	void draw(RenderWindow&);
 	FloatRect getArea();
+	bool get_is_food(void);
 };
 
 #endif

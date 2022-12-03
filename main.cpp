@@ -13,15 +13,16 @@ int main()
     
     srand((unsigned int)time(NULL));
     Font font;
-    if (!font.loadFromFile("")) {
+    if (!font.loadFromFile("img/Roboto-Regular.ttf")) {
         return -1;
     }
-
+    /*
     SoundBuffer buffer;
-    if (!buffer.loadFromFile("")) {
+    if (!buffer.loadFromFile("Roboto-Regular.ttf")) {
         cout << "sound file error" << endl;
     }
     Sound sound(buffer);
+    */
 
     RectangleShape rec(Vector2f(360, 480));
     rec.setFillColor(Color::White);
@@ -51,9 +52,11 @@ int main()
             case Event::KeyPressed:
                 if (Keyboard::isKeyPressed(Keyboard::Left) == true) {
                     //다마고치 왼쪽으로 움직이게 하기
+                    tamagotchi.moveLeft();
                 }
                 else if (Keyboard::isKeyPressed(Keyboard::Right) == true) {
                     //다마고치 오른쪽으로 움직이게 하기
+                    tamagotchi.moveRight();
                 }
                 break;
             default:
@@ -70,7 +73,7 @@ int main()
         text.setString(to_string(cur_score));
         window.draw(text);
 
-        if (cur_score <= 0) {
+        if (cur_score < 0) {
             window.close();
         }
         window.display();

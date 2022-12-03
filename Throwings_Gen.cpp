@@ -12,31 +12,38 @@ void Throwings_Gen::update(Score& _score) {
 		//ddong 만드는 부분
 		if (period % 3 == 0) {
 			Throwings* ddong = new Throwings(_x, _speed, false);
-			ddongs.push_back(*ddong);
+			throwings.push_back(*ddong);
 		}
 		else {
 			//food 만드는 부분
 			Throwings* food = new Throwings(_x, _speed, true);
-			foods.push_back(*food);
+			throwings.push_back(*food);
 		}
 		clock.restart();
 	}
 
-	//??
-	for (auto& _e : foods) {
+	for (auto& _e : throwings) {
 		_e.update(_score);
 	}
 }
 
 void Throwings_Gen::draw(RenderWindow& _window)
 {
-	for (auto& _e : foods) {
+	for (auto& _e : throwings) {
 		_e.draw(_window);
 	}
 };
-bool Throwings_Gen::checkHit(FloatRect _rect) {
-	for (auto& _e : foods) {
+bool Throwings_Gen::checkHit(FloatRect _rect, Score & _score) {
+	for (auto& _e : throwings) {
 		if (_rect.intersects(_e.getArea()) == true && _e.destroyed == false) {
+			if (_e.get_is_food() == true) {
+				//다마고치가 먹는다.
+				_score.upScore();
+			}
+			else if (_e.get_is_food() == false) {
+				//다마고치가 힘들어한다.
+				_score.downScore();
+			}
 			_e.destroyed = true;
 			return true;
 		}

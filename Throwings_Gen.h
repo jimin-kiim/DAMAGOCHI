@@ -8,8 +8,8 @@ using namespace sf;
 
 class Throwings_Gen {
 private:
-	vector <Throwings> foods;
-	vector <Throwings> ddongs;
+
+	vector <Throwings> throwings;
 	float _x = 0;
 	float _speed = 0;
 	int period;
@@ -20,7 +20,7 @@ public:
 	}
 	void update(Score&);
 	void draw(RenderWindow&);
-	bool checkHit(FloatRect);
+	bool checkHit(FloatRect, Score&);
 };
 
 #endif
