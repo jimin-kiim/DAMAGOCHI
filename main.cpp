@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "Page.h"
 #include "Tamagotchi.h"
 #include "Throwings.h"
 #include "Throwings_Gen.h"

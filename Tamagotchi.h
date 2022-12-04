@@ -21,7 +21,7 @@ private:
 	bool hitted;
 public:
 	Tamagotchi() {
-		assert(img.loadFromFile("img/tamagotchi_img.png"));
+		assert(img.loadFromFile("img/l_tamagotchi_img.png"));
 		tamagotchi.setTexture(img);
 		tamagotchi.setPosition(180.0f - 15.0f, 480.0f - 44.0f);
 

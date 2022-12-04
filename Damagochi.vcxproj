@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -138,8 +138,10 @@
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Throwings.cpp" />
     <ClCompile Include="Throwings_Gen.cpp" />
+    <ClCompile Include="Page.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Page.h" />
     <ClInclude Include="Tamagotchi.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Throwings.h" />

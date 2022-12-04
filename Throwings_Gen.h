@@ -8,7 +8,6 @@ using namespace sf;
 
 class Throwings_Gen {
 private:
-
 	vector <Throwings> throwings;
 	float _x = 0;
 	float _speed = 0;
