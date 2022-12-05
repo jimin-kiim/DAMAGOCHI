@@ -3,7 +3,6 @@
 #include "tamagotchi.h"
 using namespace std;
 
-enum option {NAME = 1, STUDENT_ID, ADMISSION_YEAR, DEPARTMENT, ALL};
 void UI::setTamagotchi()
 {
     string name;
