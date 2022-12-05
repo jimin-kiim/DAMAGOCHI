@@ -19,8 +19,11 @@ void UI::setTamagotchi()
     if (user_input == "y"){
         cout << name << "의 소개말을 입력해주세요! >>";
         getline(cin, introduction);
+        cout << name << "의 소개말 : "<< "\""<< introduction << "\"\n";
     }else{
         introduction = "안녕하세요, " + name + "입니다 :D";
+        cout << "기본 소개말로 설정되었습니다.\n";
+        cout << name << "의 소개말 : "<< "\""<< introduction << "\"\n";
     }
 
     Tamagotchi Tamagotchi(name,introduction);
