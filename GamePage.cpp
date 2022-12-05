@@ -66,6 +66,22 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
         throwings.draw(_window);
         cur_score = score.update();
         cur_life = score.updateLife();
+        clock_t end = clock();
+        int time = (end - score.getStart()) / 1000;
+        string nuggim = "";
+        if (time % 10 == 0 && time != 0) {
+            nuggim = "!!!!!!!!";
+            textScore.setFillColor(Color::Green);
+            score.upGap(time / 10);
+            textgap.setFont(font);
+            textgap.setFillColor(Color::Green);
+            textgap.setPosition(100.0f, 200.0f);
+            textgap.setCharacterSize(30);
+            textgap.setString(" Score X " + to_string((time / 10 + 1)) + "!!!!");
+            _window.draw(textgap);
+        }
+        textScore.setString("Score : " + to_string(cur_score) + "\t\t\t\t\t" + to_string(time) + nuggim);
+        textLife.setString("\nLife : " + to_string(cur_life));
         textScore.setString("Score : " + to_string(cur_score));
         textLife.setString("\nLife : " + to_string(cur_life));
         _window.draw(textScore);

@@ -22,7 +22,7 @@ private:
     Sprite food;
     Sprite ddong;
     Clock clock;
-    bool is_food; // Food, Ddong ±∏∫– ¿Âƒ°
+    bool is_food;
 
 public:
     bool hit = false;

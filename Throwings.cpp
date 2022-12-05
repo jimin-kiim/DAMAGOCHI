@@ -7,7 +7,6 @@ void Throwings::update(ScoreAndLife& score) {
     }
     if (this->is_food == true) {
         Vector2f pos = food.getPosition();
-        //∂•ø° ¥Íæ“¿ª ∂ß
         if (pos.y > 480.0f - 26.0f) {
             speed = 0;
             destroyed = true;

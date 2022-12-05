@@ -34,6 +34,8 @@ public:
     void draw(RenderWindow&);
     bool getHitted(void);
     void setHitted(bool);
+    int getPos();
+
 };
 
 #endif

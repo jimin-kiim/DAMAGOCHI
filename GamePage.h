@@ -19,6 +19,7 @@ private:
     ScoreAndLife score;
     Text textScore;
     Text textLife;
+    Text textgap;
     int cur_score;
     int cur_life;
     RenderWindow *window;

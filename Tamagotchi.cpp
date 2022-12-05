@@ -48,3 +48,6 @@ bool Tamagotchi::getHitted(void) {
 void Tamagotchi::setHitted(bool boolean) {
     this->hitted = boolean;
 }
+int Tamagotchi::getPos() {
+    return tamagotchi.getPosition().x;
+}

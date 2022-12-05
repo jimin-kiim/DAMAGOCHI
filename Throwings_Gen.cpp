@@ -3,35 +3,27 @@
 
 void Throwings_Gen::update(ScoreAndLife& _score) {
     period = clock.getElapsedTime().asMilliseconds();
+
     //cout << "This is period : " <<period<<endl;
-    if (0) {//is_fever) {
-        for (int i = 0; i < 10; i++) {
-            _x = (float)(330 * i);   //¡¬øÏ π¸¿ßø° ¥Î«—
-            _speed = (float)((rand() % 50) / 10) + 5; //50->35 ¡§µµ¥¬ æÓ∂≥±Ó?
+
+    if (period > rand() % 1000 + 300)
+    {
+        _x = (float)(rand() % 3300) / 10;   //좌우 범위에 대한
+        _speed = (float)((rand() % 50) / 10) + 3; //50->35 정도는 어떨까?
+
+        if (period % 5 == 1 || period % 5 == 3 || period % 5 == 5) {
+            Throwings* ddong = new Throwings(_x, _speed, false);
+            cout << "똥 푸쉬?" << endl;
+            throwings.push_back(*ddong);
+        }
+        else if (period % 5 == 0 || period % 5 == 4) {
+            //food ����� �κ�
             Throwings* food = new Throwings(_x, _speed, true);
+            cout << "피자 푸쉬?" << endl;
             throwings.push_back(*food);
-            sleep(sf::microseconds(1));
         }
         clock.restart();
-    }
-    else {
-        if (period > rand() % 1000 + 300)
-        {
-            _x = (float)(rand() % 3300) / 10;
-            _speed = (float)((rand() % 50) / 10) + 5;
-            // 3¿∏∑Œ ≥™¥©æ˙¿ª ∂ß ≥™∏”¡ˆ∞° 0 ¿Ã∏È ddong generate
-            //ddong ∏∏µÂ¥¬ ∫Œ∫–
-            if (period % 5 == 1 || period % 5 == 3){
-                Throwings* ddong = new Throwings(_x, _speed, false);
-                throwings.push_back(*ddong);
-            }
-            else if (period % 5 == 0) {
-                //food ∏∏µÂ¥¬ ∫Œ∫–
-                Throwings* food = new Throwings(_x, _speed, true);
-                throwings.push_back(*food);
-            }
-            clock.restart();
-        }
+
     }
 
     for (auto& _e : throwings) {
