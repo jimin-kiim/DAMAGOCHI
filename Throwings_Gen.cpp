@@ -3,13 +3,14 @@
 
 void Throwings_Gen::update(ScoreAndLife& _score) {
     period = clock.getElapsedTime().asMilliseconds();
-
+    clock_t end = std::clock();
+    int t = (end - _score.getStart()) / 10000;
     //cout << "This is period : " <<period<<endl;
 
     if (period > rand() % 1000 + 300)
     {
         _x = (float)(rand() % 3300) / 10;   //좌우 범위에 대한
-        _speed = (float)((rand() % 50) / 10) + 3; //50->35 정도는 어떨까?
+        _speed = (float)((rand() % 50) / 10) + 3 + t;
 
         if (period % 5 == 1 || period % 5 == 3 || period % 5 == 5) {
             Throwings* ddong = new Throwings(_x, _speed, false);
