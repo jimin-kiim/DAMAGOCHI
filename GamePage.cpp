@@ -6,41 +6,44 @@ int GamePage::fontCheck(Font& font, string fontName) {
     }
 }
 
-void GamePage::rectangle(RectangleShape&) {
-    rec.setFillColor(Color::White);
-    rec.setPosition(0, 0);
+void GamePage::rectangle(RectangleShape& _rec) {
+    _rec.setFillColor(Color::Black);
+    _rec.setPosition(0, 0);
 }
 
-void GamePage::gameStart(RenderWindow& window)
+void GamePage::gameStart() {
+    gameStart(*window, rec, font);
+}
+
+void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font)
 {
-    window.setFramerateLimit(60);
+    _window.setFramerateLimit(60);
 
     srand((unsigned int)time(NULL));
 
-    if (fontCheck(font, "Roboto - Regular.ttf") == -1) {
+    if (!font.loadFromFile("Roboto-Regular.ttf")) {
         return;
     }
-    rectangle(rec);
+    rectangle(_rec);
 
-    textScore.setFont(font);
-    textScore.setFillColor(Color::Black);
+    textScore.setFont(_font);
+    textScore.setFillColor(Color::White);
     textScore.setPosition(0.0f, 0.0f);
     textScore.setCharacterSize(15);
 
-    textLife.setFont(font);
+    textLife.setFont(_font);
     textLife.setFillColor(Color::Red);
     textLife.setPosition(0.0f, 0.0f);
     textLife.setCharacterSize(15);
-
-    while (window.isOpen())
+    while (_window.isOpen())
     {
         Event event;
-        while (window.pollEvent(event))
+        while (_window.pollEvent(event))
         {
             switch (event.type)
             {
             case Event::Closed:
-                window.close();
+                _window.close();
                 break;
             case Event::KeyPressed:
                 if (Keyboard::isKeyPressed(Keyboard::Left) == true) {
@@ -56,21 +59,46 @@ void GamePage::gameStart(RenderWindow& window)
         }
         throwings.update(score);
         tamagotchi.update(throwings, score);
-        window.clear();
-        window.draw(rec);
-        tamagotchi.draw(window);
-        throwings.draw(window);
+        _window.clear();
+        _window.draw(rec);
+        tamagotchi.draw(_window);
+        throwings.draw(_window);
         cur_score = score.update();
         cur_life = score.updateLife();
         textScore.setString("Score : " + to_string(cur_score));
         textLife.setString("\nLife : " + to_string(cur_life));
-        window.draw(textScore);
-        window.draw(textLife);
+        _window.draw(textScore);
+        _window.draw(textLife);
 
         if (cur_life <= 0) {
             //다마고치 상태 업데이트
-            window.close();
+            endPage(_window, _font);
+            sleep(milliseconds(2000));
+            _window.close();
         }
-        window.display();
+        _window.display();
     }
+};
+
+void GamePage::endPage(RenderWindow& _window, Font& _font)
+{
+    _window.clear();
+
+    RectangleShape recEnd(Vector2f(360, 480));
+    recEnd.setFillColor(Color::Red);
+    recEnd.setPosition(0,0);
+    _window.draw(recEnd);
+
+    textEnd.setFont(_font);
+    textEnd.setFillColor(Color::White);
+    textEnd.setPosition(80.0f, 200.0f);
+    textEnd.setCharacterSize(45);
+    textEnd.setString("Game End");
+
+    _window.draw(textEnd);
+    _window.display();
+
+}
+int GamePage::getScore(void) {
+    return this->cur_score;
 }

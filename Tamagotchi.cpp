@@ -13,7 +13,7 @@ void Tamagotchi::moveLeft(void) {
 }
 
 void Tamagotchi::moveRight(void) {
-    if (tamagotchi.getPosition().x >= 360.0f - 30.0f) {
+    if (tamagotchi.getPosition().x >= 320.0f - 30.0f) {
         return;
     }
     assert(img.loadFromFile("img/r_tamagotchi_img.png"));

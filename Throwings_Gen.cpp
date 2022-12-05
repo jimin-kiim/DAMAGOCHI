@@ -7,7 +7,7 @@ void Throwings_Gen::update(ScoreAndLife& _score) {
     if (0) {//is_fever) {
         for (int i = 0; i < 10; i++) {
             _x = (float)(330 * i);   //¡¬øÏ π¸¿ßø° ¥Î«—
-            _speed = (float)((rand() % 50) / 10) + 1; //50->35 ¡§µµ¥¬ æÓ∂≥±Ó?
+            _speed = (float)((rand() % 50) / 10) + 3; //50->35 ¡§µµ¥¬ æÓ∂≥±Ó?
             Throwings* food = new Throwings(_x, _speed, true);
             throwings.push_back(*food);
             sleep(sf::microseconds(1));
