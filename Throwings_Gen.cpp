@@ -1,64 +1,64 @@
-#include "Throwings_Gen.h"
+ï»¿#include "Throwings_Gen.h"
 #include "Throwings.h"
 
-void Throwings_Gen::update(Score& _score) {
-	period = clock.getElapsedTime().asMilliseconds();
-	//cout << "This is period : " <<period<<endl;
-	if (0) {//is_fever) {
-		for (int i = 0; i < 10; i++) {
-			_x = (float)(330 * i);   //ÁÂ¿ì ¹üÀ§¿¡ ´ëÇÑ
-			_speed = (float)((rand() % 50) / 10) + 1; //50->35 Á¤µµ´Â ¾î¶³±î?
-			Throwings* food = new Throwings(_x, _speed, true);
-			throwings.push_back(*food);
-			sleep(sf::microseconds(1));
-		}
-		clock.restart();
-	}
-	else {
-		if (period > rand() % 1000 + 300)
-		{
-			_x = (float)(rand() % 3300) / 10;
-			_speed = (float)((rand() % 50) / 10) + 1;
-			// 3À¸·Î ³ª´©¾úÀ» ¶§ ³ª¸ÓÁö°¡ 0 ÀÌ¸é ddong generate
-			//ddong ¸¸µå´Â ºÎºĞ
-			if (period % 3 == 0) {
-				Throwings* ddong = new Throwings(_x, _speed, false);
-				throwings.push_back(*ddong);
-			}
-			else {
-				//food ¸¸µå´Â ºÎºĞ
-				Throwings* food = new Throwings(_x, _speed, true);
-				throwings.push_back(*food);
-			}
-			clock.restart();
-		}
-	}
-	
-	for (auto& _e : throwings) {
-		_e.update(_score);
-	}
+void Throwings_Gen::update(ScoreAndLife& _score) {
+    period = clock.getElapsedTime().asMilliseconds();
+    //cout << "This is period : " <<period<<endl;
+    if (0) {//is_fever) {
+        for (int i = 0; i < 10; i++) {
+            _x = (float)(330 * i);   //Â¡Â¬Ã¸Ã Ï€Â¸Â¿ÃŸÃ¸Â° Â¥ÃÂ«â€”
+            _speed = (float)((rand() % 50) / 10) + 1; //50->35 Â¡Â§ÂµÂµÂ¥Â¬ Ã¦Ã“âˆ‚â‰¥Â±Ã“?
+            Throwings* food = new Throwings(_x, _speed, true);
+            throwings.push_back(*food);
+            sleep(sf::microseconds(1));
+        }
+        clock.restart();
+    }
+    else {
+        if (period > rand() % 1000 + 300)
+        {
+            _x = (float)(rand() % 3300) / 10;
+            _speed = (float)((rand() % 50) / 10) + 1;
+            // 3Â¿âˆâˆ‘Å’ â‰¥â„¢Â¥Â©Ã¦Ë™Â¿Âª âˆ‚ÃŸ â‰¥â„¢âˆâ€Â¡Ë†âˆÂ° 0 Â¿ÃƒâˆÃˆ ddong generate
+            //ddong âˆâˆÂµÃ‚Â¥Â¬ âˆ«Å’âˆ«â€“
+            if (period % 5 == 0) {
+                Throwings* ddong = new Throwings(_x, _speed, false);
+                throwings.push_back(*ddong);
+            }
+            else if (period % 5 == 1 || period % 5 == 3) {
+                //food âˆâˆÂµÃ‚Â¥Â¬ âˆ«Å’âˆ«â€“
+                Throwings* food = new Throwings(_x, _speed, true);
+                throwings.push_back(*food);
+            }
+            clock.restart();
+        }
+    }
+
+    for (auto& _e : throwings) {
+        _e.update(_score);
+    }
 }
 
 void Throwings_Gen::draw(RenderWindow& _window)
 {
-	for (auto& _e : throwings) {
-		_e.draw(_window);
-	}
+    for (auto& _e : throwings) {
+        _e.draw(_window);
+    }
 };
-bool Throwings_Gen::checkHit(FloatRect _rect, Score & _score) {
-	for (auto& _e : throwings) {
-		if (_rect.intersects(_e.getArea()) == true && _e.destroyed == false) {
-			if (_e.get_is_food() == true) {
-				//´Ù¸¶°íÄ¡°¡ ¸Ô´Â´Ù.
-				_score.upScore();
-			}
-			else{
-				//´Ù¸¶°íÄ¡°¡ Èûµé¾îÇÑ´Ù.
-				_score.downScore();
-			}
-			_e.destroyed = true;
-			return true;
-		}
-	}
-	return false;
+bool Throwings_Gen::checkHit(FloatRect _rect, ScoreAndLife& _score) {
+    for (auto& _e : throwings) {
+        if (_rect.intersects(_e.getArea()) == true && _e.destroyed == false) {
+            if (_e.get_is_food() == true) {
+                //Â¥Å¸âˆâˆ‚âˆÃŒÆ’Â°âˆÂ° âˆâ€˜Â¥Â¬Â¥Å¸.
+                _score.upScore();
+            }
+            else {
+                //Â¥Å¸âˆâˆ‚âˆÃŒÆ’Â°âˆÂ° Â»ËšÂµÃˆÃ¦Ã“Â«â€”Â¥Å¸.
+                _score.downScore();
+            }
+            _e.destroyed = true;
+            return true;
+        }
+    }
+    return false;
 };

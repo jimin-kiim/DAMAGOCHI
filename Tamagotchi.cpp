@@ -1,70 +1,70 @@
-#include "Tamagotchi.h"
+ï»¿#include "Tamagotchi.h"
 #include "Throwings.h"
 #include "Throwings_Gen.h"
-#include "Score.h"
+#include "ScoreAndLife.h"
 
 void Tamagotchi::moveLeft(void) {
-	if (tamagotchi.getPosition().x <= 0.0f) {
-		return;
-	}
-	assert(img.loadFromFile("img/l_tamagotchi_img.png"));
-	tamagotchi.setTexture(img);
-	tamagotchi.move(-10.0f, 0.0f);
+    if (tamagotchi.getPosition().x <= 0.0f) {
+        return;
+    }
+    assert(img.loadFromFile("img/l_tamagotchi_img.png"));
+    tamagotchi.setTexture(img);
+    tamagotchi.move(-10.0f, 0.0f);
 }
 
 void Tamagotchi::moveRight(void) {
-	if (tamagotchi.getPosition().x >= 360.0f - 30.0f){
-		return;
-	}
-	assert(img.loadFromFile("img/r_tamagotchi_img.png"));
-	tamagotchi.setTexture(img);
-	tamagotchi.move(10.0f, 0.0f);
+    if (tamagotchi.getPosition().x >= 360.0f - 30.0f) {
+        return;
+    }
+    assert(img.loadFromFile("img/r_tamagotchi_img.png"));
+    tamagotchi.setTexture(img);
+    tamagotchi.move(10.0f, 0.0f);
 }
 
-void Tamagotchi::update(Throwings_Gen& _throwings, Score& _score)
+void Tamagotchi::update(Throwings_Gen& _throwings, ScoreAndLife& _score)
 {
-	if (this->getHitted() == true) {
-		if (clock.getElapsedTime().asMilliseconds() > 500) {
-			
-			assert(img.loadFromFile("img/l_tamagotchi_img.png"));
-			tamagotchi.setTexture(img);
+    if (this->getHitted() == true) {
+        if (clock.getElapsedTime().asMilliseconds() > 500) {
 
-			this->setHitted(false);
-		}
-	}
-	if (_throwings.checkHit(tamagotchi.getGlobalBounds(), _score) == true) {
-		assert(img.loadFromFile("img/hit_tamagotchi_img.png"));
-		tamagotchi.setTexture(img);
-		//_sound.play();
-		this->setHitted(true);
-		//_score.upScore(); //Á¡¼ö Áßº¹À¸·Î ¿Ã¶ó°£´Ù.
-		clock.restart();
-		//throwing Á¾·ù ±¸º°ÇØ¼­ ¾÷µ¥ÀÌÆ®ÇØÁÖ±â!
-		/*
-		if (_throwings == true) {
-			assert(img.loadFromFile(""));
-			tamagotchi.setTexture(img);
-			//_sound.play();
-			hitted = true;
-			_score.upScore();
-			clock.restart();
-		}
-		else {
-			assert(img.loadFromFile(""));
-			tamagotchi.setTexture(img);
-			//_sound.play();
-			hitted = true;
-			_score.downScore();
-			clock.restart();
-		}*/
-	}
-} 
+            assert(img.loadFromFile("img/l_tamagotchi_img.png"));
+            tamagotchi.setTexture(img);
+
+            this->setHitted(false);
+        }
+    }
+    if (_throwings.checkHit(tamagotchi.getGlobalBounds(), _score) == true) {
+        assert(img.loadFromFile("img/hit_tamagotchi_img.png"));
+        tamagotchi.setTexture(img);
+        //_sound.play();
+        this->setHitted(true);
+        //_score.upScore(); //Â¡Â°ÂºË† Â¡ï¬‚âˆ«Ï€Â¿âˆâˆ‘Å’ Ã¸âˆšâˆ‚Ã›âˆžÂ£Â¥Å¸.
+        clock.restart();
+        //throwing Â¡Ã¦âˆ‘Ë˜ Â±âˆâˆ«âˆžÂ«Ã¿Âºâ‰  Ã¦ËœÂµâ€¢Â¿Ãƒâˆ†Ã†Â«Ã¿Â¡Ã·Â±â€š!
+        /*
+        if (_throwings == true) {
+            assert(img.loadFromFile(""));
+            tamagotchi.setTexture(img);
+            //_sound.play();
+            hitted = true;
+            _score.upScore();
+            clock.restart();
+        }
+        else {
+            assert(img.loadFromFile(""));
+            tamagotchi.setTexture(img);
+            //_sound.play();
+            hitted = true;
+            _score.downScore();
+            clock.restart();
+        }*/
+    }
+}
 void Tamagotchi::draw(RenderWindow& _window) {
-	_window.draw(tamagotchi);
+    _window.draw(tamagotchi);
 }
 bool Tamagotchi::getHitted(void) {
-	return this->hitted;
+    return this->hitted;
 }
 void Tamagotchi::setHitted(bool boolean) {
-	this->hitted = boolean;
+    this->hitted = boolean;
 }

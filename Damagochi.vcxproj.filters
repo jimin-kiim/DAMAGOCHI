@@ -27,10 +27,7 @@
     <ClCompile Include="Throwings_Gen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Score.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Page.cpp">
+    <ClCompile Include="ScoreAndLife.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +41,7 @@
     <ClInclude Include="Throwings_Gen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Score.h">
+    <ClInclude Include="ScoreAndLife.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

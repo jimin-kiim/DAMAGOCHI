@@ -1,17 +1,16 @@
-#include <SFML/Graphics.hpp>
-#include "Page.h"
+ï»¿#include <SFML/Graphics.hpp>
 #include "Tamagotchi.h"
 #include "Throwings.h"
 #include "Throwings_Gen.h"
-#include "Score.h"
+#include "ScoreAndLife.h"
 using namespace sf;
 using namespace std;
 
 int main()
 {
-    RenderWindow window(VideoMode(360,480), "TAMAGOTCHI - MINIGAME");
-    window.setFramerateLimit(60); //ÇÁ·¹ÀÓ ¼Óµµ Á¦ÇÑ
-    
+    RenderWindow window(VideoMode(360, 480), "TAMAGOTCHI - MINIGAME");
+    window.setFramerateLimit(60); //í”„ë ˆì„ ì†ë„ ì œí•œ
+
     srand((unsigned int)time(NULL));
     Font font;
     if (!font.loadFromFile("img/Roboto-Regular.ttf")) {
@@ -32,31 +31,39 @@ int main()
 
     Tamagotchi tamagotchi;
     Throwings_Gen throwings;
-    Score score;
-    Text text;
-    text.setFont(font);
-    text.setFillColor(Color::Black);
-    text.setPosition(0.0f, 0.0f);
-    text.setCharacterSize(15);
+    ScoreAndLife score;
+    Text textScore;
+    Text textLife;
+
+    textScore.setFont(font);
+    textScore.setFillColor(Color::Black);
+    textScore.setPosition(0.0f, 0.0f);
+    textScore.setCharacterSize(15);
+
+    textLife.setFont(font);
+    textLife.setFillColor(Color::Red);
+    textLife.setPosition(0.0f, 0.0f);
+    textLife.setCharacterSize(15);
     int cur_score;
+    int cur_life;
 
     while (window.isOpen())
     {
         Event event;
         while (window.pollEvent(event))
         {
-            switch(event.type)
+            switch (event.type)
             {
             case Event::Closed:
                 window.close();
                 break;
             case Event::KeyPressed:
                 if (Keyboard::isKeyPressed(Keyboard::Left) == true) {
-                    //´Ù¸¶°íÄ¡ ¿ŞÂÊÀ¸·Î ¿òÁ÷ÀÌ°Ô ÇÏ±â
+                    //Â¥Å¸âˆâˆ‚âˆÃŒÆ’Â° Ã¸ï¬Â¬Â Â¿âˆâˆ‘Å’ Ã¸ÃšÂ¡ËœÂ¿Ãƒâˆâ€˜ Â«Å“Â±â€š
                     tamagotchi.moveLeft();
                 }
                 else if (Keyboard::isKeyPressed(Keyboard::Right) == true) {
-                    //´Ù¸¶°íÄ¡ ¿À¸¥ÂÊÀ¸·Î ¿òÁ÷ÀÌ°Ô ÇÏ±â
+                    //Â¥Å¸âˆâˆ‚âˆÃŒÆ’Â° Ã¸Â¿âˆâ€¢Â¬Â Â¿âˆâˆ‘Å’ Ã¸ÃšÂ¡ËœÂ¿Ãƒâˆâ€˜ Â«Å“Â±â€š
                     tamagotchi.moveRight();
                 }
                 break;
@@ -71,10 +78,14 @@ int main()
         tamagotchi.draw(window);
         throwings.draw(window);
         cur_score = score.update();
-        text.setString(to_string(cur_score));
-        window.draw(text);
+        cur_life = score.updateLife();
+        textScore.setString("Score : " + to_string(cur_score));
+        textLife.setString("\nLife : " + to_string(cur_life));
+        window.draw(textScore);
+        window.draw(textLife);
 
-        if (cur_score < 0) {
+        if (cur_life <= 0) {
+            //ë‹¤ë§ˆê³ ì¹˜ ìƒíƒœ ì—…ë°ì´íŠ¸
             window.close();
         }
         window.display();
