@@ -13,7 +13,7 @@ int main()
 
     srand((unsigned int)time(NULL));
     Font font;
-    if (!font.loadFromFile("img/Roboto-Regular.ttf")) {
+    if (!font.loadFromFile("Roboto-Regular.ttf")) {
         return -1;
     }
     /*
