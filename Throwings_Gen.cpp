@@ -14,13 +14,11 @@ void Throwings_Gen::update(ScoreAndLife& _score) {
 
         if (period % 5 == 1 || period % 5 == 3 || period % 5 == 5) {
             Throwings* ddong = new Throwings(_x, _speed, false);
-            cout << "똥 푸쉬?" << endl;
             throwings.push_back(*ddong);
         }
         else if (period % 5 == 0 || period % 5 == 4) {
             //food ����� �κ�
             Throwings* food = new Throwings(_x, _speed, true);
-            cout << "피자 푸쉬?" << endl;
             throwings.push_back(*food);
         }
         clock.restart();

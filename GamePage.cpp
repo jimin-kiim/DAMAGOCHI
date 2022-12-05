@@ -66,6 +66,7 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
         throwings.draw(_window);
         cur_score = score.update();
         cur_life = score.updateLife();
+
         clock_t end = clock();
         int time = (end - score.getStart()) / 1000;
         string nuggim = "";
@@ -138,7 +139,7 @@ void GamePage::endPage(RenderWindow& _window, Font& _font)
     if (cur_score >= 1000) {
         assert(texture.loadFromFile("img/nice_over.png"));
     }
-    else {
+    else if (0 <= cur_score < 1000) {
         assert(texture.loadFromFile("img/bad_over.png"));
     }
     icon.setTexture(texture);
