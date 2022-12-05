@@ -105,6 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +123,7 @@
       <PreprocessorDefinitions>DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,8 +140,10 @@
     <ClCompile Include="ScoreAndLife.cpp" />
     <ClCompile Include="Throwings.cpp" />
     <ClCompile Include="Throwings_Gen.cpp" />
+    <ClCompile Include="GamePage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GamePage.h" />
     <ClInclude Include="Tamagotchi.h" />
     <ClInclude Include="ScoreAndLife.h" />
     <ClInclude Include="Throwings.h" />
