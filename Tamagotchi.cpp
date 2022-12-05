@@ -35,28 +35,8 @@ void Tamagotchi::update(Throwings_Gen& _throwings, ScoreAndLife& _score)
     if (_throwings.checkHit(tamagotchi.getGlobalBounds(), _score) == true) {
         assert(img.loadFromFile("img/hit_tamagotchi_img.png"));
         tamagotchi.setTexture(img);
-        //_sound.play();
         this->setHitted(true);
-        //_score.upScore(); //¡°ºˆ ¡ﬂ∫π¿∏∑Œ ø√∂Û∞£¥Ÿ.
         clock.restart();
-        //throwing ¡æ∑˘ ±∏∫∞«ÿº≠ æ˜µ•¿Ã∆Æ«ÿ¡÷±‚!
-        /*
-        if (_throwings == true) {
-            assert(img.loadFromFile(""));
-            tamagotchi.setTexture(img);
-            //_sound.play();
-            hitted = true;
-            _score.upScore();
-            clock.restart();
-        }
-        else {
-            assert(img.loadFromFile(""));
-            tamagotchi.setTexture(img);
-            //_sound.play();
-            hitted = true;
-            _score.downScore();
-            clock.restart();
-        }*/
     }
 }
 void Tamagotchi::draw(RenderWindow& _window) {

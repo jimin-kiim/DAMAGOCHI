@@ -35,6 +35,7 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
     textLife.setFillColor(Color::Red);
     textLife.setPosition(0.0f, 0.0f);
     textLife.setCharacterSize(15);
+
     while (_window.isOpen())
     {
         Event event;
@@ -73,30 +74,71 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
         if (cur_life <= 0) {
             //다마고치 상태 업데이트
             endPage(_window, _font);
-            sleep(milliseconds(2000));
-            _window.close();
         }
         _window.display();
     }
 };
 
+void GamePage::startPage(RenderWindow& _window, Font& _font)
+{
+    Text textStart;
+    Texture texture;
+    Sprite background;
+    _window.clear();
+    assert(texture.loadFromFile("img/game_intro.png"));
+    background.setTexture(texture);
+    _window.draw(background);
+
+    /*
+    RectangleShape recStart(Vector2f(360, 480));
+    recStart.setFillColor(Color::Black);
+    recStart.setPosition(0, 0);
+    _window.draw(recStart);
+
+    textStart.setFont(_font);
+    textStart.setFillColor(Color::White);
+    textStart.setPosition(80.0f, 200.0f);
+    textStart.setCharacterSize(45);
+    textStart.setString("Game Start");
+
+    _window.draw(textStart);*/
+    _window.display();
+    sleep(milliseconds(2000));
+    _window.close();
+
+}
+
 void GamePage::endPage(RenderWindow& _window, Font& _font)
 {
+    Text textEnd;
+    Texture texture;
+    Sprite icon;
     _window.clear();
 
     RectangleShape recEnd(Vector2f(360, 480));
-    recEnd.setFillColor(Color::Red);
+    recEnd.setFillColor(Color::Black);
     recEnd.setPosition(0,0);
     _window.draw(recEnd);
+    if (cur_score >= 1000) {
+        assert(texture.loadFromFile("img/nice_over.png"));
+    }
+    else {
+        assert(texture.loadFromFile("img/bad_over.png"));
+    }
+    icon.setTexture(texture);
+    icon.setPosition(90.0f, 90.0f);
 
+    _window.draw(icon);
     textEnd.setFont(_font);
-    textEnd.setFillColor(Color::White);
-    textEnd.setPosition(80.0f, 200.0f);
+    textEnd.setFillColor(Color::Red);
+    textEnd.setPosition(80.0f, 160.0f);
     textEnd.setCharacterSize(45);
-    textEnd.setString("Game End");
+    textEnd.setString("\n\n\n Bye Bye");
 
     _window.draw(textEnd);
     _window.display();
+    sleep(milliseconds(2000));
+    _window.close();
 
 }
 int GamePage::getScore(void) {

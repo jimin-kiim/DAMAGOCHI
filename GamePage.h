@@ -3,6 +3,7 @@
 #define GAMEPAGE_H
 
 #include <SFML/Graphics.hpp>
+#include <cassert>
 #include "Tamagotchi.h"
 #include "Throwings.h"
 #include "Throwings_Gen.h"
@@ -18,7 +19,6 @@ private:
     ScoreAndLife score;
     Text textScore;
     Text textLife;
-    Text textEnd;
     int cur_score;
     int cur_life;
     RenderWindow *window;
@@ -28,15 +28,11 @@ public:
     GamePage() {
 
         window = new RenderWindow(VideoMode(360, 480), "TAMAGOTCHI - MINIGAME");
-        //window.setFramerateLimit(60);
-
-        //srand((unsigned int)time(NULL));
-        //fontCheck(font, "Roboto - Regular.ttf");
-
+       
         RectangleShape rec(Vector2f(360, 480));
         cur_score = 0;
         cur_life = 5;
-        //rectangle(rec);
+
 
     }
 
@@ -58,8 +54,10 @@ public:
     void rectangle(RectangleShape&);
     void gameStart(RenderWindow&, RectangleShape&, Font&);
     int fontCheck(Font&, string);
+    void startPage(RenderWindow&, Font&);
     void endPage(RenderWindow&, Font&);
     int getScore(void);
+
 };
 
 #endif
