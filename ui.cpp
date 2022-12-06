@@ -4,8 +4,6 @@
 #include "tamagotchi.h"
 using namespace std;
 
-
-
 const string UI::baby_tamagotchi = "\
             \n\
            ____ \n\
@@ -79,7 +77,7 @@ void UI::setTamagotchi()
 void UI::showMainView()
 {
 
-    drawBabyTamagotchi();
+    drawTamagotchi();
 
     cout << "1. See Tamagotchi's introduction \n";
     cout << "2. Feed Tamagotchi \n";
@@ -108,7 +106,7 @@ void UI::showMainView()
     }
 }
 
-void UI::drawBabyTamagotchi()
+void UI::drawTamagotchi()
 {
     int xp = tamagotchi.getXp();
     if (xp >= 200)
