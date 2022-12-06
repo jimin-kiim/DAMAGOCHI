@@ -17,6 +17,7 @@ void GamePage::gameStart() {
 
 void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font)
 {
+    int start_flag = 0;
     _window.setFramerateLimit(60);
 
     srand((unsigned int)time(NULL));
@@ -57,6 +58,10 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
             default:
                 break;
             }
+        }
+        if (start_flag == 0) {
+            startPage(_window, _font);
+            start_flag = 1;
         }
         throwings.update(score);
         tamagotchi.update(throwings, score);
@@ -102,11 +107,11 @@ void GamePage::startPage(RenderWindow& _window, Font& _font)
     Texture texture;
     Sprite background;
     _window.clear();
-    assert(texture.loadFromFile("img/game_intro.png"));
-    background.setTexture(texture);
+    //assert(texture.loadFromFile("img/game_intro.png"));
+    //background.setTexture(texture);
     _window.draw(background);
 
-    /*
+    
     RectangleShape recStart(Vector2f(360, 480));
     recStart.setFillColor(Color::Black);
     recStart.setPosition(0, 0);
@@ -114,14 +119,13 @@ void GamePage::startPage(RenderWindow& _window, Font& _font)
 
     textStart.setFont(_font);
     textStart.setFillColor(Color::White);
-    textStart.setPosition(80.0f, 200.0f);
+    textStart.setPosition(70.0f, 170.0f);
     textStart.setCharacterSize(45);
     textStart.setString("Game Start");
 
-    _window.draw(textStart);*/
+    _window.draw(textStart);
     _window.display();
     sleep(milliseconds(2000));
-    _window.close();
 
 }
 
