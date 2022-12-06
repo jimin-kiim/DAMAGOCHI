@@ -4,7 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <cassert>
-#include "Tamagotchi.h"
+#include "GameObject.h"
 #include "Throwings.h"
 #include "Throwings_Gen.h"
 #include "ScoreAndLife.h"
@@ -14,7 +14,7 @@ using namespace std;
 class GamePage {
 private:
     Font font;
-    Tamagotchi tamagotchi;
+    GameObject tamagotchi;
     Throwings_Gen throwings;
     ScoreAndLife score;
     Text textScore;
@@ -40,15 +40,10 @@ public:
     GamePage(int width, int height) {
 
         window = new RenderWindow(VideoMode(width, height), "TAMAGOTCHI - MINIGAME");
-        //window.setFramerateLimit(60);
-
-        //srand((unsigned int)time(NULL));
-        //fontCheck(font, "Roboto - Regular.ttf");
 
         RectangleShape rec(Vector2f(360, 480));
         cur_score = 0;
         cur_life = 5;
-        //rectangle(rec);
 
     }
     void gameStart(void);

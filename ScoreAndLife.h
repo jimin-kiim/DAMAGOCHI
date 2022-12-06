@@ -1,6 +1,6 @@
 #pragma once
 #ifndef SCOREANDLIFE_H
-#define SCOSCOREANDLIFE_HRE_H
+#define SCOSCOREANDLIFE_H
 #include<time.h>
 class ScoreAndLife {
 private:

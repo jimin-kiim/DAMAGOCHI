@@ -4,7 +4,6 @@
 #define THROWINGS_H
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include <string>
 #include <cassert>
 #include <iostream>
@@ -31,12 +30,12 @@ public:
     Throwings(float _x, float _speed, bool _is_food)
         : x(_x), speed(_speed), is_food(_is_food)
     {
-        if (this->is_food == true) {
+        if (this->is_food) {
             assert(food_img.loadFromFile("img/food_img.png"));
             food.setTexture(food_img);
             food.setPosition(_x, 0.0f);
         }
-        else if (this->is_food == false) {
+        else {
             assert(ddong_img.loadFromFile("img/ddong_img.png"));
             ddong.setTexture(ddong_img);
             ddong.setPosition(_x, 0.0f);

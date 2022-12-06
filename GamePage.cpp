@@ -86,12 +86,13 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
             textgap.setString(" Score X " + to_string((time / 10 + 1)) + "!!!!");
             _window.draw(textgap);
         }
+
         textScore.setString("Score : " + to_string(cur_score) + "\t\t\t\t\t" + to_string(time) + nuggim);
         textLife.setString("\nLife : " + to_string(cur_life));
-        textScore.setString("Score : " + to_string(cur_score));
-        textLife.setString("\nLife : " + to_string(cur_life));
+
         _window.draw(textScore);
         _window.draw(textLife);
+        textScore.setFillColor(Color::White);
 
         if (cur_life <= 0) {
             //다마고치 상태 업데이트

@@ -1,5 +1,6 @@
 #include "ScoreAndLife.h"
 #include<math.h>
+
 void ScoreAndLife::upScore() {
 	score += gap;
 };
