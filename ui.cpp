@@ -33,8 +33,8 @@ void UI::showMainView(){
 
 }
 
-void UI::introduce(string name, string introduction, int xp) {
-    cout << "Hello! my name is " << name << endl;
-    cout << introduction << endl;
-    cout << "My xp is " << xp << ". Please grow me up!" << endl;
+void UI::introduce() {
+    cout << "Hello! my name is " << tamagotchi.getName() << endl;
+    cout << tamagotchi.getIntroduction << endl;
+    cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
 }
