@@ -123,8 +123,9 @@ void UI::drawTamagotchi()
     }
 }
 
-void UI::introduce() {
+void UI::introduce()
+{
     cout << "Hello! my name is " << tamagotchi.getName() << endl;
-    cout << tamagotchi.getIntroduction << endl;
+    cout << tamagotchi.getIntroduction() << endl;
     cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
 }
