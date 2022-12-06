@@ -135,7 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_game.cpp" />
     <ClCompile Include="Tamagotchi.cpp" />
     <ClCompile Include="ScoreAndLife.cpp" />
     <ClCompile Include="Throwings.cpp" />

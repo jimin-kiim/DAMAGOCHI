@@ -7,7 +7,8 @@
 using namespace sf;
 using namespace std;
 
-int main()
+//using as main
+int main_game()
 {
     GamePage gamepage;
     gamepage.gameStart();
