@@ -15,6 +15,8 @@ public:
     Tamagotchi(){};
     Tamagotchi(string, string);
     int getXp() { return this->xp; };
+    string getName() { return this->name; };
+    string getIntroduction() { return this->introduction; };
 };
 
 #endif

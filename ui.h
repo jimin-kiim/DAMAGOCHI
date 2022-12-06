@@ -23,6 +23,7 @@ public:
   void setTamagotchi();
   void showMainView();
   void drawTamagotchi();
+ void introduce();
 };
 
 #endif
