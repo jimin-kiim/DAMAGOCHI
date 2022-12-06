@@ -1,12 +1,23 @@
 #include <iostream>
+#define MULTILINE_STRING(s) #s
 #include "ui.h"
 #include "tamagotchi.h"
 using namespace std;
 
 void UI::setTamagotchi()
 {
+    string logo = "\
+                                                                        \n\
+ _____   _     __  __     _     ____   ___  _____  ____  _   _  ___ \n\
+|_   _| / \\   |  \\/  |   / \\   / ___| / _ \\|_   _|/ ___|| | | ||_ _|\n\
+  | |  / _ \\  | |\\/| |  / _ \\ | |  _ | | | | | | | |    | |_| | | | \n\
+  | | / ___ \\ | |  | | / ___ \\| |_| || |_| | | | | |___ |  _  | | | \n\
+  |_|/_/   \\_\\|_|  |_|/_/   \\_\\\\____| \\___/  |_|  \\____||_| |_||___|\n\
+                                                                    \n\
+                                                                    \n";
+
     string name;
-    cout << "TAMAGOTCHI\n";
+    cout << logo;
     cout << "다마고치에게 이름을 지어주세요 >>";
     getline(cin, name);
 
