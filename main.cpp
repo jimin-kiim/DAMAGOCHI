@@ -7,6 +7,6 @@ int main()
     Tamagotchi tamagotchi;
 
     ui.setTamagotchi();
-
+    ui.showMainView();
     return 0;
 }

@@ -26,21 +26,67 @@ void UI::setTamagotchi()
     getline(cin, user_input);
 
     string introduction;
-    if (user_input == "y"){
-        cout << "Please enter the introductory words for \"" << name <<  "\" >> ";
+    if (user_input == "y")
+    {
+        cout << "Please enter the introductory words for \"" << name << "\" >> ";
         getline(cin, introduction);
-        cout << "\n" << "Introduction of \""<< name <<  "\": \"" << introduction << "\"\n\n";
-    }else{
+        cout << "\n"
+             << "Introduction of \"" << name << "\": \"" << introduction << "\"\n\n";
+    }
+    else
+    {
         introduction = "Hi, I'm " + name + " :D";
         cout << "Basic introduction is set. \n";
-        cout << "\n" << "Introduction of \""<< name <<  "\": \"" << introduction << "\"\n\n";
+        cout << "\n"
+             << "Introduction of \"" << name << "\": \"" << introduction << "\"\n\n";
     }
 
-    Tamagotchi Tamagotchi(name,introduction);
+    Tamagotchi Tamagotchi(name, introduction);
     cout << "Have a great time with \"" << name << "\" :)";
 }
 
-void UI::showMainView(){
+void UI::showMainView()
+{
 
+    drawBabyTamagotchi();
+
+    cout << "1. See Tamagotchi's introduction \n";
+    cout << "2. Feed Tamagotchi \n";
+    cout << "3. Play with Tamagotchi \n";
+    cout << "4. Make Tamagotchi a bed \n";
+
+    int user_input;
+    cout << "What are you going to do ? >> ";
+    cin >> user_input;
+
+    switch (user_input)
+    {
+    case INTRODUCTION:
+        cout << "\"1. See Tamagotchi's introduction \" selected \n";
+        break;
+    case FEED:
+        cout << "\"2. Feed Tamagotchi\" selected \n";
+        break;
+    case PLAY:
+        cout << "\"3. Play with Tamagotchi\" selected \n";
+        break;
+    case SLEEP:
+        cout << "\"4. Make Tamagotchi a bed\" selected \n";
+    default:
+        cout << "Wrong Input \n";
+    }
 }
 
+void UI::drawBabyTamagotchi()
+{
+    string baby_tamagotchi = "\
+            \n\
+           ____ \n\
+         /     \\\n\
+        |       |  \n\
+        |       | \n\
+         \\_____/  \n\
+            \n";
+
+    cout << baby_tamagotchi;
+}
