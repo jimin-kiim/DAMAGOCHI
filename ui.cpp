@@ -18,28 +18,29 @@ void UI::setTamagotchi()
 
     string name;
     cout << logo;
-    cout << "다마고치에게 이름을 지어주세요 >>";
+    cout << "Please name Tamagotchi >> ";
     getline(cin, name);
 
     string user_input;
-    cout << name << "의 소개말을 작성해주실래요?  (y/n)>>";
+    cout << "Would you like to set the introduction of \"" << name << "\"?  (y/n) >> ";
     getline(cin, user_input);
 
     string introduction;
     if (user_input == "y"){
-        cout << name << "의 소개말을 입력해주세요! >>";
+        cout << "Please enter the introductory words for \"" << name <<  "\" >> ";
         getline(cin, introduction);
-        cout << name << "의 소개말 : "<< "\""<< introduction << "\"\n";
+        cout << "\n" << "Introduction of \""<< name <<  "\": \"" << introduction << "\"\n\n";
     }else{
-        introduction = "안녕하세요, " + name + "입니다 :D";
-        cout << "기본 소개말로 설정되었습니다.\n";
-        cout << name << "의 소개말 : "<< "\""<< introduction << "\"\n";
+        introduction = "Hi, I'm " + name + " :D";
+        cout << "Basic introduction is set. \n";
+        cout << "\n" << "Introduction of \""<< name <<  "\": \"" << introduction << "\"\n\n";
     }
 
     Tamagotchi Tamagotchi(name,introduction);
-    cout << name << "와 좋은 추억을 만들어보세요 :)";
+    cout << "Have a great time with \"" << name << "\" :)";
 }
 
 void UI::showMainView(){
 
 }
+
