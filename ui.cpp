@@ -4,6 +4,37 @@
 #include "tamagotchi.h"
 using namespace std;
 
+
+
+const string UI::baby_tamagotchi = "\
+            \n\
+           ____ \n\
+         /     \\\n\
+        |       |  \n\
+        |       | \n\
+         \\_____/  \n\
+            \n";
+
+const string UI::child_tamagotchi = "\
+            \n\
+           ________ \n\
+         /          \\\n\
+        |っ ‘ ᵕ ‘ C |  \n\
+        |           | \n\
+        |           | \n\
+         \\_________/  \n\
+            \n";
+
+const string UI::teen_tamagotchi = "\
+            \n\
+            _______ \n\
+          /         \\\n\
+         |   •‿•    |  \n\
+        ┏|          |┛ \n\
+         |          | \n\
+          \\________/  \n\
+            \n";
+
 void UI::setTamagotchi()
 {
     string logo = "\
@@ -41,7 +72,7 @@ void UI::setTamagotchi()
              << "Introduction of \"" << name << "\": \"" << introduction << "\"\n\n";
     }
 
-    Tamagotchi Tamagotchi(name, introduction);
+    tamagotchi = Tamagotchi(name, introduction);
     cout << "Have a great time with \"" << name << "\" :)";
 }
 
@@ -79,14 +110,17 @@ void UI::showMainView()
 
 void UI::drawBabyTamagotchi()
 {
-    string baby_tamagotchi = "\
-            \n\
-           ____ \n\
-         /     \\\n\
-        |       |  \n\
-        |       | \n\
-         \\_____/  \n\
-            \n";
-
-    cout << baby_tamagotchi;
+    int xp = tamagotchi.getXp();
+    if (xp >= 200)
+    {
+        cout << teen_tamagotchi;
+    }
+    else if (xp >= 100)
+    {
+        cout << child_tamagotchi;
+    }
+    else
+    {
+        cout << baby_tamagotchi;
+    }
 }

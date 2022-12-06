@@ -13,6 +13,7 @@ class Tamagotchi
 public:
     Tamagotchi(){};
     Tamagotchi(string, string);
+    int getXp() { return this->xp; };
 };
 
 #endif
