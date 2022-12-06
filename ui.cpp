@@ -32,3 +32,9 @@ void UI::setTamagotchi()
 void UI::showMainView(){
 
 }
+
+void UI::introduce(string name, string introduction, int xp) {
+    cout << "Hello! my name is " << name << endl;
+    cout << this->introduction << endl;
+    cout << "My xp is " << this->xp << ". Please grow me up!" << endl;
+}
