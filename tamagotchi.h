@@ -1,11 +1,12 @@
 
-#ifndef __TAMAGOTCHI_H__ 
-#define __TAMAGOTCHI_H__ 
+#ifndef __TAMAGOTCHI_H__
+#define __TAMAGOTCHI_H__
 
 #include <iostream>
 using namespace std;
 class Tamagotchi
 {
+private:
     string name;
     string introduction;
     int xp;
@@ -13,9 +14,9 @@ class Tamagotchi
 public:
     Tamagotchi(){};
     Tamagotchi(string, string);
-    string getName() { return this->name };
-    string getIntroduction() { return this->introduction };
-    int getXp() { return this->xp };
+    int getXp() { return this->xp; };
+    string getName() { return this->name; };
+    string getIntroduction() { return this->introduction; };
 };
 
 #endif
