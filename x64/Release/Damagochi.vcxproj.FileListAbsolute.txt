@@ -1,0 +1,2 @@
+C:\Users\minki\Tamagotchi\x64\Release\Damagochi.exe
+C:\Users\minki\VS_TAMAGOTCHI\x64\Release\Damagochi.exe
