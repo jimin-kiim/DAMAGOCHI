@@ -1,4 +1,6 @@
 #include <iostream>
+#include <unistd.h> // 윈도우에서 할 땐 주석 처리해야 합니다. 
+// #include <windows.h> // 윈도우에서 할 땐 주석을 풀어줘야 합니다.
 #define MULTILINE_STRING(s) #s
 #include "ui.h"
 #include "tamagotchi.h"
@@ -13,6 +15,15 @@ const string UI::baby_tamagotchi = "\
          \\_____/  \n\
             \n";
 
+const string UI::baby_tamagotchi_sleeping = "\
+            \n\
+           ____ \n\
+         /     \\...zzZ\n\
+        |       |  Sleeping ...\n\
+        |       | \n\
+         \\_____/  \n\
+            \n";
+
 const string UI::child_tamagotchi = "\
             \n\
            ________ \n\
@@ -23,11 +34,31 @@ const string UI::child_tamagotchi = "\
          \\_________/  \n\
             \n";
 
+const string UI::child_tamagotchi_sleeping = "\
+            \n\
+           ________ \n\
+         /          \\...zzZ\n\
+        |っ ᴗ˳ᴗ   C |  Sleeping ...\n\
+        |           | \n\
+        |           | \n\
+         \\_________/  \n\
+            \n";
+
 const string UI::teen_tamagotchi = "\
             \n\
             _______ \n\
           /         \\\n\
          |   •‿•    |  \n\
+        ┏|          |┛ \n\
+         |          | \n\
+          \\________/  \n\
+            \n";
+
+const string UI::teen_tamagotchi_sleeping = "\
+            \n\
+            _______ \n\
+          /         \\...zzZ\n\
+         |   ᴗ˳ᴗ    |  Sleeping ...\n\
         ┏|          |┛ \n\
          |          | \n\
           \\________/  \n\
@@ -77,14 +108,13 @@ void UI::setTamagotchi()
 void UI::showMainView()
 {
     int flag = 1;
-    drawTamagotchi();
     while (flag)
     {
+        drawTamagotchi();
         cout << "1. See Tamagotchi's introduction \n";
         cout << "2. Feed Tamagotchi \n";
-        cout << "3. Play with Tamagotchi \n";
-        cout << "4. Make Tamagotchi a bed \n";
-        cout << "5. exit \n";
+        cout << "3. Make Tamagotchi a bed \n";
+        cout << "4. exit \n";
 
         int user_input;
         cout << "What are you going to do ? >> ";
@@ -98,11 +128,8 @@ void UI::showMainView()
         case FEED:
             cout << "\"2. Feed Tamagotchi\" selected \n";
             break;
-        case PLAY:
-            cout << "\"3. Play with Tamagotchi\" selected \n";
-            break;
         case SLEEP:
-            cout << "\"4. Make Tamagotchi a bed\" selected \n";
+            makeTamagotchiGoToBed();
             break;
         case EXIT:
             flag = 0;
@@ -135,4 +162,34 @@ void UI::introduce()
     cout << "Hello! my name is " << tamagotchi.getName() << endl;
     cout << tamagotchi.getIntroduction() << endl;
     cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
+}
+
+void UI::feedTamagotchi()
+{
+}
+
+int UI::makeTamagotchiGoToBed()
+{
+    int xp = tamagotchi.getXp();
+    if (xp >= 200)
+    {
+        cout << teen_tamagotchi_sleeping;
+    }
+    else if (xp >= 100)
+    {
+        cout << child_tamagotchi_sleeping;
+    }
+    else
+    {
+        cout << baby_tamagotchi_sleeping;
+    }
+    cout << "...zzZ\n";
+    sleep(1); // 윈도우에서 할 땐 Sleep(3);으로 대문자로 작성해주셔야 합니다 !
+     cout << "...zzZ\n";
+    sleep(1);
+     cout << "...zzZ\n";
+     sleep(1);
+    cout << "Tamagotchi woke up! (　＾∇＾)\n";
+    sleep(1);
+    return 0;
 }
