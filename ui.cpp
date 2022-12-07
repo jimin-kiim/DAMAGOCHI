@@ -76,33 +76,40 @@ void UI::setTamagotchi()
 
 void UI::showMainView()
 {
-
+    int flag = 1;
     drawTamagotchi();
-
-    cout << "1. See Tamagotchi's introduction \n";
-    cout << "2. Feed Tamagotchi \n";
-    cout << "3. Play with Tamagotchi \n";
-    cout << "4. Make Tamagotchi a bed \n";
-
-    int user_input;
-    cout << "What are you going to do ? >> ";
-    cin >> user_input;
-
-    switch (user_input)
+    while (flag)
     {
-    case INTRODUCTION:
-        cout << "\"1. See Tamagotchi's introduction \" selected \n";
-        break;
-    case FEED:
-        cout << "\"2. Feed Tamagotchi\" selected \n";
-        break;
-    case PLAY:
-        cout << "\"3. Play with Tamagotchi\" selected \n";
-        break;
-    case SLEEP:
-        cout << "\"4. Make Tamagotchi a bed\" selected \n";
-    default:
-        cout << "Wrong Input \n";
+        cout << "1. See Tamagotchi's introduction \n";
+        cout << "2. Feed Tamagotchi \n";
+        cout << "3. Play with Tamagotchi \n";
+        cout << "4. Make Tamagotchi a bed \n";
+        cout << "5. exit \n";
+
+        int user_input;
+        cout << "What are you going to do ? >> ";
+        cin >> user_input;
+
+        switch (user_input)
+        {
+        case INTRODUCTION:
+            introduce();
+            break;
+        case FEED:
+            cout << "\"2. Feed Tamagotchi\" selected \n";
+            break;
+        case PLAY:
+            cout << "\"3. Play with Tamagotchi\" selected \n";
+            break;
+        case SLEEP:
+            cout << "\"4. Make Tamagotchi a bed\" selected \n";
+            break;
+        case EXIT:
+            flag = 0;
+            break;
+        default:
+            cout << "Wrong Input \n";
+        }
     }
 }
 
@@ -123,8 +130,9 @@ void UI::drawTamagotchi()
     }
 }
 
-void UI::introduce() {
+void UI::introduce()
+{
     cout << "Hello! my name is " << tamagotchi.getName() << endl;
-    cout << tamagotchi.getIntroduction << endl;
+    cout << tamagotchi.getIntroduction() << endl;
     cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
 }

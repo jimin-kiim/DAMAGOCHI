@@ -10,7 +10,8 @@ private:
     INTRODUCTION = 1,
     FEED,
     PLAY,
-    SLEEP
+    SLEEP,
+    EXIT
   };
   static const string baby_tamagotchi;
   static const string child_tamagotchi;
