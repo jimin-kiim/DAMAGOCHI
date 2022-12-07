@@ -108,12 +108,13 @@ void UI::setTamagotchi()
 void UI::showMainView()
 {
     int flag = 1;
+    string name = tamagotchi.getName();
     while (flag)
     {
         drawTamagotchi();
-        cout << "1. See Tamagotchi's introduction \n";
-        cout << "2. Feed Tamagotchi \n";
-        cout << "3. Make Tamagotchi a bed \n";
+        cout << "1. See "<< name << "'s introduction \n";
+        cout << "2. Feed "<< name << " \n";
+        cout << "3. Make "<< name << " go to bed \n";
         cout << "4. exit \n";
 
         int user_input;
@@ -171,6 +172,7 @@ void UI::feedTamagotchi()
 int UI::makeTamagotchiGoToBed()
 {
     int xp = tamagotchi.getXp();
+    string name = tamagotchi.getName();
     if (xp >= 200)
     {
         cout << teen_tamagotchi_sleeping;
@@ -189,7 +191,7 @@ int UI::makeTamagotchiGoToBed()
     sleep(1);
      cout << "...zzZ\n";
      sleep(1);
-    cout << "Tamagotchi woke up! (　＾∇＾)\n";
+    cout << "\'"<< name << "\' woke up! (　＾∇＾)\n";
     sleep(1);
     return 0;
 }
