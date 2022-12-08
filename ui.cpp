@@ -167,6 +167,7 @@ void UI::introduce()
 
 void UI::feedTamagotchi()
 {
+    tamagotchi.increaseXp(50);
 }
 
 int UI::makeTamagotchiGoToBed()
@@ -193,5 +194,6 @@ int UI::makeTamagotchiGoToBed()
      sleep(1);
     cout << "\'"<< name << "\' woke up! (　＾∇＾)\n";
     sleep(1);
+    tamagotchi.increaseXp(50);
     return 0;
 }
