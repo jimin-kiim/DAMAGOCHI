@@ -115,7 +115,8 @@ void UI::showMainView()
         cout << "1. See "<< name << "'s introduction \n";
         cout << "2. Feed "<< name << " \n";
         cout << "3. Make "<< name << " go to bed \n";
-        cout << "4. exit \n";
+        cout << "4. Play Game with " << name << "\n";
+        cout << "5. exit \n";
 
         int user_input;
         cout << "What are you going to do ? >> ";
@@ -132,6 +133,9 @@ void UI::showMainView()
         case SLEEP:
             makeTamagotchiGoToBed();
             break;
+        case GAME:
+            gamepage.gameStart();
+            tamagotchi.increaseXp(100);
         case EXIT:
             flag = 0;
             break;
