@@ -8,3 +8,7 @@ Tamagotchi::Tamagotchi(string name, string introduction)
     this->introduction = introduction;
     this->xp = 0;
 }
+
+void Tamagotchi::increaseXp(int xp) {
+    this->xp = this->xp + xp;
+}

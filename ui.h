@@ -1,15 +1,19 @@
 #ifndef __UI_H__
 #define __UI_H__
 #include "tamagotchi.h"
+#include "GamePage.h"
 class UI
 {
 private:
   Tamagotchi tamagotchi;
+  GamePage gamepage;
+ 
   enum option
   {
     INTRODUCTION = 1,
     FEED,
     SLEEP,
+    GAME,
     EXIT
   };
   static const string baby_tamagotchi;
