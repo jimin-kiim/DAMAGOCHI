@@ -37,15 +37,6 @@ public:
 
     }
 
-    GamePage(int width, int height) {
-
-        window = new RenderWindow(VideoMode(width, height), "TAMAGOTCHI - MINIGAME");
-
-        RectangleShape rec(Vector2f(360, 480));
-        cur_score = 0;
-        cur_life = 5;
-
-    }
     void gameStart(void);
     void rectangle(RectangleShape&);
     void gameStart(RenderWindow&, RectangleShape&, Font&);
