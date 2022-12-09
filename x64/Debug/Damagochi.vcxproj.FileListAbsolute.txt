@@ -1,2 +1,3 @@
 C:\Users\minki\Tamagotchi\x64\Debug\Damagochi.exe
 C:\Users\minki\VS_TAMAGOTCHI\x64\Debug\Damagochi.exe
+C:\Users\sehoo\desktop\oop4-dummy\aa\Tamagotchi\x64\Debug\Damagochi.exe

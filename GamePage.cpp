@@ -44,20 +44,17 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
         {
             switch (event.type)
             {
-            case Event::Closed:
-                _window.close();
-                break;
-            case Event::KeyPressed:
-                if (Keyboard::isKeyPressed(Keyboard::Left) == true) {
-                    tamagotchi.moveLeft();
+                if (event.type == Event::Closed) {
+                    _window.close();
+                    break;
                 }
-                else if (Keyboard::isKeyPressed(Keyboard::Right) == true) {
-                    tamagotchi.moveRight();
-                }
-                break;
-            default:
-                break;
             }
+        }
+        if (Keyboard::isKeyPressed(Keyboard::Left) == true) {
+            tamagotchi.moveLeft();
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::Right) == true) {
+            tamagotchi.moveRight();
         }
         if (start_flag == 0) {
             startPage(_window, _font);
@@ -95,7 +92,7 @@ void GamePage::gameStart(RenderWindow& _window, RectangleShape& _rec,Font& _font
         textScore.setFillColor(Color::White);
 
         if (cur_life <= 0) {
-            //´Ù¸¶°íÄ¡ »óÅÂ ¾÷µ¥ÀÌÆ®
+            //ï¿½Ù¸ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
             endPage(_window, _font);
         }
         _window.display();
