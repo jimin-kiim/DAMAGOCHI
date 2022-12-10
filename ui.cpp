@@ -1,5 +1,5 @@
 #include <iostream>
-//#include <unistd.h> // 맥
+// #include <unistd.h> // 맥
 #include <windows.h> // 윈도우
 #define MULTILINE_STRING(s) #s
 #include "ui.h"
@@ -8,62 +8,74 @@
 #include "GamePage.h"
 using namespace std;
 
-const string UI::baby_tamagotchi = "\
-            \n\
-           ____ \n\
-         /     \\\n\
-        |       |  \n\
-        |       | \n\
-         \\_____/  \n\
-            \n";
+const string UI::baby_tamagotchi = "\n\
+\n\
+                                  \n\
+                                  \n\
+                ____              \n\
+              /     \\             \n\
+             |       |            \n\
+             |       |            \n\
+              \\_____/              \n\
+==================================\n\
+\n";
 
 const string UI::baby_tamagotchi_sleeping = "\
+            \n\
             \n\
            ____ \n\
          /     \\...zzZ\n\
         |       |  Sleeping ...\n\
         |       | \n\
          \\_____/  \n\
+==================================\n\
             \n";
 
 const string UI::child_tamagotchi = "\
             \n\
+            \n\
+            \n\
            ________ \n\
-         / ~~~~     \\\n\
-        |   0   0   |  \n\
-        |     U     | \n\
+         /          \\\n\
+        |っ ‘ ᵕ ‘ C |  \n\
+        |           | \n\
         |           | \n\
          \\_________/  \n\
             \n";
 
 const string UI::child_tamagotchi_sleeping = "\
             \n\
+            \n\
            ________ \n\
-         / ~~~~~    \\...zzZ\n\
-        |   U  U    |  Sleeping ...\n\
-        |    U      | \n\
+         /          \\...zzZ\n\
+        |っ ᴗ˳ᴗ   C |  Sleeping ...\n\
+        |           | \n\
         |           | \n\
          \\_________/  \n\
+==================================\n\
             \n";
 
 const string UI::teen_tamagotchi = "\
             \n\
+            \n\
             _______ \n\
-          /  #####  \\\n\
-         |   @ @    |  \n\
-         |    O     |  \n\
+          /         \\\n\
+         |   •‿•    |  \n\
+        ┏|          |┛ \n\
          |          | \n\
           \\________/  \n\
+==================================\n\
             \n";
 
 const string UI::teen_tamagotchi_sleeping = "\
             \n\
             _______ \n\
-          /  ##### \\...zzZ\n\
-         |   U U    |  Sleeping ...\n\
-         |    O     | \n\
+          /         \\...zzZ\n\
+         |   ᴗ˳ᴗ    |  Sleeping ...\n\
+        ┏|          |┛ \n\
          |          | \n\
           \\________/  \n\
+==================================\n\
             \n";
 
 void UI::setTamagotchi()
@@ -114,11 +126,12 @@ void UI::showMainView()
     while (flag)
     {
         drawTamagotchi();
-        cout << "1. See "<< name << "'s introduction \n";
-        cout << "2. Feed "<< name << " \n";
-        cout << "3. Make "<< name << " go to bed \n";
+        cout << "==================================\n";
+        cout << "1. See " << name << "'s introduction \n";
+        cout << "2. Feed " << name << " \n";
+        cout << "3. Make " << name << " go to bed \n";
         cout << "4. exit \n";
-
+        cout << "==================================\n";
         int user_input;
         cout << "What are you going to do ? >> ";
         cin >> user_input;
@@ -126,18 +139,22 @@ void UI::showMainView()
         switch (user_input)
         {
         case INTRODUCTION:
+        cout << "==================================\n";
             introduce();
             break;
         case FEED:
+        cout << "==================================\n";
             feedTamagotchi();
             break;
         case SLEEP:
+        cout << "==================================\n";
             makeTamagotchiGoToBed();
             break;
         case EXIT:
             flag = 0;
             break;
         default:
+        cout << "==================================\n";
             cout << "Wrong Input \n";
         }
     }
@@ -163,24 +180,35 @@ void UI::drawTamagotchi()
 void UI::introduce()
 {
     string name = tamagotchi.getName();
-    cout << "Hello! my name is " << name << endl;
-    cout << tamagotchi.getIntroduction() << endl;
-    cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
+    cout << "   Hello! my name is " << name << endl;
+     Sleep(1000);
+    // sleep(1);
+    cout << "   " <<tamagotchi.getIntroduction() << endl;
+    Sleep(1000);
+    // sleep(1);
+    cout << "   My xp is " << tamagotchi.getXp() << ". Please grow me up!\n" << endl;
+     Sleep(1000);
+    // sleep(1);
 
     cout << "\'" << name << "\' got more 50XP!\n";
+    cout << "==================================\n";
     tamagotchi.increaseXp(50);
-
 }
 
 int UI::feedTamagotchi()
 {
-    cout << "\"2. Feed Tamagotchi\" selected \n";
     GamePage gamepage;
     gamepage.gameStart();
     int score = gamepage.getScore();
     string name = tamagotchi.getName();
+    cout << "==================================\n";
+    Sleep(1000); 
+    // sleep(1);
     cout << "\'" << name << "\' scored " << score << "\n";
+    Sleep(1000); 
+    // sleep(1);
     cout << "\'" << name << "\' increased " << score/10 << "XP\n";
+    cout << "==================================\n";
     tamagotchi.increaseXp(score / 10);
     return 0;
 }
@@ -203,14 +231,19 @@ int UI::makeTamagotchiGoToBed()
     }
     cout << "...zzZ\n";
     Sleep(1000); // 윈도우에서 할 땐 Sleep(1000); 맥에선 sleep(1);으로 작성해주셔야 합니다 !
-     cout << "...zzZ\n";
+    // sleep(1);
+    cout << "...zzZ\n";
      Sleep(1000);
-     cout << "...zzZ\n";
+    // sleep(1);
+    cout << "...zzZ\n";
      Sleep(1000);
-    cout << "\'"<< name << "\' woke up! :D \n";
+    // sleep(1);
+    cout << "\'" << name << "\' woke up! :D \n";
     Sleep(1000);
+    // sleep(1);
 
     cout << "\'" << name << "\' is now relaxed and got more 50XP!\n";
+    cout << "==================================\n";
     tamagotchi.increaseXp(50);
     return 0;
 }
