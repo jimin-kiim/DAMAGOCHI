@@ -198,7 +198,8 @@ void UI::showMainView()
         cout << "2. Feed " << name << " \n";
         cout << "3. Make " << name << " go to bed \n";
         cout << "4. Make " << name << " enjoy music \n";
-        cout << "5. exit \n";
+        cout << "5. Play Studying Game with " << name << "\n";
+        cout << "6. exit \n";
         cout << "==================================\n";
         int user_input;
         cout << "What are you going to do ? >> ";
@@ -223,7 +224,7 @@ void UI::showMainView()
             makeTamagotchiEnjoyMusic();
             break;
 
-            case STUDY:
+        case STUDY:
             cout << "==================================\n";
             playStudyingGame();
             break;
@@ -334,40 +335,40 @@ int UI::makeTamagotchiEnjoyMusic()
     {
         cout << teen_tamagotchi_listening_to_music1;
         //  Sleep(1000);
-         system("cls");
-         cout << teen_tamagotchi_listening_to_music2;
+        system("cls");
+        cout << teen_tamagotchi_listening_to_music2;
         //  Sleep(1000);
-         system("cls");
-         cout << teen_tamagotchi_listening_to_music1;
+        system("cls");
+        cout << teen_tamagotchi_listening_to_music1;
         //  Sleep(1000);
-         system("cls");
-          cout << teen_tamagotchi_listening_to_music2;
+        system("cls");
+        cout << teen_tamagotchi_listening_to_music2;
     }
     else if (xp >= 100)
     {
         cout << child_tamagotchi_listening_to_music1;
         //  Sleep(1000);
-         system("cls");
-         cout << child_tamagotchi_listening_to_music2;
+        system("cls");
+        cout << child_tamagotchi_listening_to_music2;
         //  Sleep(1000);
-         system("cls");
-         cout << child_tamagotchi_listening_to_music1;
+        system("cls");
+        cout << child_tamagotchi_listening_to_music1;
         //  Sleep(1000);
-         system("cls");
-         cout << child_tamagotchi_listening_to_music2;
+        system("cls");
+        cout << child_tamagotchi_listening_to_music2;
     }
     else
     {
         cout << baby_tamagotchi_listening_to_music1;
         //  Sleep(1000);
-         system("cls");
-         cout << baby_tamagotchi_listening_to_music2;
+        system("cls");
+        cout << baby_tamagotchi_listening_to_music2;
         //  Sleep(1000);
-         system("cls");
-         cout << baby_tamagotchi_listening_to_music1;
+        system("cls");
+        cout << baby_tamagotchi_listening_to_music1;
         //  Sleep(1000);
-         system("cls");
-          cout << baby_tamagotchi_listening_to_music2;
+        system("cls");
+        cout << baby_tamagotchi_listening_to_music2;
     }
 
     system("cls");
@@ -377,14 +378,15 @@ int UI::makeTamagotchiEnjoyMusic()
     return 0;
 }
 
-int UI::playStudyingGame(){
+int UI::playStudyingGame()
+{
     StudyingGame game;
     string name = tamagotchi.getName();
 
     int target = game.selectTargetWord();
     game.startGame(target);
     int xp = game.getScore();
-    cout << "\'" << name << "\' enjoyed studying and got more "<< xp<< "XP!\n";
+    cout << "\'" << name << "\' enjoyed studying and got more " << xp << "XP!\n";
     cout << "==================================\n";
     tamagotchi.increaseXp(xp);
     return 0;
