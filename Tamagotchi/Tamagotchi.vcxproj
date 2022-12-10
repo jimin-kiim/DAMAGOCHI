@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{20571e47-3977-4811-a219-8ac65b2aee3d}</ProjectGuid>
+    <ProjectGuid>{f7a7d8e4-d7b6-4a17-8f9e-761441047c2f}</ProjectGuid>
     <RootNamespace>Tamagotchi</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -110,7 +110,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\dormi\Desktop\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-main-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,30 +129,27 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\dormi\Desktop\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system.lib;sfml-main.lib;sfml-graphics.lib;sfml-audio.lib;sfml-network.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\GameObject.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\GamePage.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\main.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\ScoreAndLife.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\tamagotchi.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\Throwings.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\Throwings_Gen.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\ui.cpp" />
+    <ClCompile Include="..\GameObject.cpp" />
+    <ClCompile Include="..\GamePage.cpp" />
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\ScoreAndLife.cpp" />
+    <ClCompile Include="..\tamagotchi.cpp" />
+    <ClCompile Include="..\Throwings.cpp" />
+    <ClCompile Include="..\Throwings_Gen.cpp" />
+    <ClCompile Include="..\ui.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\GameObject.h" />
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\GamePage.h" />
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\ScoreAndLife.h" />
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\tamagotchi.h" />
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\Throwings.h" />
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\Throwings_Gen.h" />
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\ui.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="Roboto-Regular.ttf" />
+    <ClInclude Include="..\GameObject.h" />
+    <ClInclude Include="..\GamePage.h" />
+    <ClInclude Include="..\ScoreAndLife.h" />
+    <ClInclude Include="..\tamagotchi.h" />
+    <ClInclude Include="..\Throwings.h" />
+    <ClInclude Include="..\Throwings_Gen.h" />
+    <ClInclude Include="..\ui.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />

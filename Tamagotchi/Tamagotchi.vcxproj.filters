@@ -15,68 +15,65 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\GamePage.cpp">
+    <ClCompile Include="..\ScoreAndLife.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\main.cpp">
+    <ClCompile Include="..\tamagotchi.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\ScoreAndLife.cpp">
+    <ClCompile Include="..\Throwings.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\tamagotchi.cpp">
+    <ClCompile Include="..\Throwings_Gen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\Throwings.cpp">
+    <ClCompile Include="..\ui.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\Throwings_Gen.cpp">
+    <ClCompile Include="..\GameObject.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\ui.cpp">
+    <ClCompile Include="..\GamePage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\새 폴더\GameObject.cpp">
+    <ClCompile Include="..\main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\GameObject.h">
+    <ClInclude Include="..\ScoreAndLife.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\GamePage.h">
+    <ClInclude Include="..\tamagotchi.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\ScoreAndLife.h">
+    <ClInclude Include="..\Throwings.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\tamagotchi.h">
+    <ClInclude Include="..\Throwings_Gen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\Throwings.h">
+    <ClInclude Include="..\ui.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\Throwings_Gen.h">
+    <ClInclude Include="..\GameObject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\새 폴더\ui.h">
+    <ClInclude Include="..\GamePage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Roboto-Regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sfml-window-d-2.dll" />
-    <None Include="sfml-window-2.dll" />
-    <None Include="sfml-system-d-2.dll" />
-    <None Include="sfml-network-d-2.dll" />
-    <None Include="sfml-system-2.dll" />
-    <None Include="sfml-network-2.dll" />
-    <None Include="sfml-graphics-d-2.dll" />
-    <None Include="sfml-graphics-2.dll" />
+    <None Include="openal32.dll" />
     <None Include="sfml-audio-2.dll" />
     <None Include="sfml-audio-d-2.dll" />
-    <None Include="openal32.dll" />
+    <None Include="sfml-graphics-2.dll" />
+    <None Include="sfml-graphics-d-2.dll" />
+    <None Include="sfml-network-2.dll" />
+    <None Include="sfml-network-d-2.dll" />
+    <None Include="sfml-system-2.dll" />
+    <None Include="sfml-system-d-2.dll" />
+    <None Include="sfml-window-2.dll" />
+    <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
 </Project>
