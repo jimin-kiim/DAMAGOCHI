@@ -11,6 +11,7 @@ private:
     FEED,
     SLEEP,
     MUSIC,
+    STUDY,
     EXIT
   };
   static const string baby_tamagotchi;
@@ -36,6 +37,7 @@ public:
   int feedTamagotchi();
   int makeTamagotchiGoToBed();
   int makeTamagotchiEnjoyMusic();
+  int playStudyingGame();
 };
 
 #endif
