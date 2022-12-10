@@ -21,13 +21,12 @@ private:
 
 public:
   UI(){};
-  void loadingView();
   void drawTamagotchi();
 
   void setTamagotchi();
   void showMainView();
   void introduce();
-  void feedTamagotchi();
+  int feedTamagotchi();
   int makeTamagotchiGoToBed();
 };
 

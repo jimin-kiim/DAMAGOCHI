@@ -1,9 +1,11 @@
 #include <iostream>
-#include <unistd.h> // 윈도우에서 할 땐 주석 처리해야 합니다. 
-// #include <windows.h> // 윈도우에서 할 땐 주석을 풀어줘야 합니다.
+//#include <unistd.h> // 맥
+#include <windows.h> // 윈도우
 #define MULTILINE_STRING(s) #s
 #include "ui.h"
 #include "tamagotchi.h"
+#include <string>
+#include "GamePage.h"
 using namespace std;
 
 const string UI::baby_tamagotchi = "\
@@ -127,7 +129,7 @@ void UI::showMainView()
             introduce();
             break;
         case FEED:
-            cout << "\"2. Feed Tamagotchi\" selected \n";
+            feedTamagotchi();
             break;
         case SLEEP:
             makeTamagotchiGoToBed();
@@ -165,8 +167,12 @@ void UI::introduce()
     cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
 }
 
-void UI::feedTamagotchi()
+int UI::feedTamagotchi()
 {
+    cout << "\"2. Feed Tamagotchi\" selected \n";
+    GamePage gamepage;
+    gamepage.gameStart();
+    return 0;
 }
 
 int UI::makeTamagotchiGoToBed()
@@ -186,12 +192,12 @@ int UI::makeTamagotchiGoToBed()
         cout << baby_tamagotchi_sleeping;
     }
     cout << "...zzZ\n";
-    sleep(1); // 윈도우에서 할 땐 Sleep(3);으로 대문자로 작성해주셔야 합니다 !
+    Sleep(1000); // 윈도우에서 할 땐 Sleep(1000); 맥에선 sleep(1);으로 작성해주셔야 합니다 !
      cout << "...zzZ\n";
-    sleep(1);
+     Sleep(1000);
      cout << "...zzZ\n";
-     sleep(1);
+     Sleep(1000);
     cout << "\'"<< name << "\' woke up! (　＾∇＾)\n";
-    sleep(1);
+    Sleep(1000);
     return 0;
 }

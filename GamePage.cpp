@@ -3,8 +3,7 @@
 int GamePage::fontCheck(Font& font, string fontName) {
     if (!font.loadFromFile(fontName)) {
         return -1;
-    }
-}
+    }}
 
 void GamePage::rectangle(RectangleShape& _rec) {
     _rec.setFillColor(Color::Black);
