@@ -10,14 +10,18 @@ private:
     INTRODUCTION = 1,
     FEED,
     SLEEP,
+    MUSIC,
     EXIT
   };
   static const string baby_tamagotchi;
   static const string baby_tamagotchi_sleeping;
+  static const string baby_tamagotchi_listening_to_music;
   static const string child_tamagotchi;
   static const string child_tamagotchi_sleeping;
+  static const string child_tamagotchi_listening_to_music;
   static const string teen_tamagotchi;
   static const string teen_tamagotchi_sleeping;
+  static const string teen_tamagotchi_listening_to_music;
 
 public:
   UI(){};
@@ -28,6 +32,7 @@ public:
   void introduce();
   int feedTamagotchi();
   int makeTamagotchiGoToBed();
+  int makeTamagotchiEnjoyMusic();
 };
 
 #endif

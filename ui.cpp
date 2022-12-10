@@ -31,6 +31,17 @@ const string UI::baby_tamagotchi_sleeping = "\
 ==================================\n\
             \n";
 
+const string UI::baby_tamagotchi_listening_to_music = "\
+            \n\
+            \n\
+           ____ \n\
+         /     \\         ♩\n\
+        |       |            ♪\n\
+        |       | ♫\n\
+         \\_____/    ♬\n\
+==================================\n\
+            \n";
+
 const string UI::child_tamagotchi = "\
             \n\
             \n\
@@ -52,6 +63,18 @@ const string UI::child_tamagotchi_sleeping = "\
         |           | \n\
         |           | \n\
          \\_________/  \n\
+==================================\n\
+            \n";
+
+const string UI::child_tamagotchi_listening_to_music = "\
+            \n\
+            \n\
+           ________ \n\
+         /          \\      ♩\n\
+        |っ ‘ ᵕ ‘  C |        ♪\n\
+        |           | \n\
+        |           | ♫\n\
+         \\_________/    ♬\n\
 ==================================\n\
             \n";
 
@@ -78,6 +101,16 @@ const string UI::teen_tamagotchi_sleeping = "\
 ==================================\n\
             \n";
 
+const string UI::teen_tamagotchi_listening_to_music = "\
+            \n\
+            _______ \n\
+          /         \\    ♩\n\
+         |   •‿•    |       ♪\n\
+        ┏|          |┛ \n\
+         |          | ♫\n\
+          \\________/   ♬\n\
+==================================\n\
+            \n";
 void UI::setTamagotchi()
 {
     string logo = "\
@@ -116,6 +149,7 @@ void UI::setTamagotchi()
     }
 
     tamagotchi = Tamagotchi(name, introduction);
+    system("cls");
     cout << "Have a great time with \"" << name << "\" :)";
 }
 
@@ -130,31 +164,36 @@ void UI::showMainView()
         cout << "1. See " << name << "'s introduction \n";
         cout << "2. Feed " << name << " \n";
         cout << "3. Make " << name << " go to bed \n";
-        cout << "4. exit \n";
+        cout << "4. Make " << name << " enjoy music \n";
+        cout << "5. exit \n";
         cout << "==================================\n";
         int user_input;
         cout << "What are you going to do ? >> ";
         cin >> user_input;
-
+        system("cls");
         switch (user_input)
         {
         case INTRODUCTION:
-        cout << "==================================\n";
+            cout << "==================================\n";
             introduce();
             break;
         case FEED:
-        cout << "==================================\n";
+            cout << "==================================\n";
             feedTamagotchi();
             break;
         case SLEEP:
-        cout << "==================================\n";
+            cout << "==================================\n";
             makeTamagotchiGoToBed();
+            break;
+        case MUSIC:
+            cout << "==================================\n";
+            makeTamagotchiEnjoyMusic();
             break;
         case EXIT:
             flag = 0;
             break;
         default:
-        cout << "==================================\n";
+            cout << "==================================\n";
             cout << "Wrong Input \n";
         }
     }
@@ -183,10 +222,11 @@ void UI::introduce()
     cout << "   Hello! my name is " << name << endl;
      Sleep(1000);
     // sleep(1);
-    cout << "   " <<tamagotchi.getIntroduction() << endl;
+    cout << "   " << tamagotchi.getIntroduction() << endl;
     Sleep(1000);
     // sleep(1);
-    cout << "   My xp is " << tamagotchi.getXp() << ". Please grow me up!\n" << endl;
+    cout << "   My xp is " << tamagotchi.getXp() << ". Please grow me up!\n"
+         << endl;
      Sleep(1000);
     // sleep(1);
 
@@ -202,10 +242,10 @@ int UI::feedTamagotchi()
     int score = gamepage.getScore();
     string name = tamagotchi.getName();
     cout << "==================================\n";
-    Sleep(1000); 
+    Sleep(1000);
     // sleep(1);
     cout << "\'" << name << "\' scored " << score << "\n";
-    Sleep(1000); 
+    Sleep(1000);
     // sleep(1);
     cout << "\'" << name << "\' increased " << score/10 << "XP\n";
     cout << "==================================\n";
@@ -241,7 +281,31 @@ int UI::makeTamagotchiGoToBed()
     cout << "\'" << name << "\' woke up! :D \n";
     Sleep(1000);
     // sleep(1);
+    system("cls");
+    cout << "\'" << name << "\' is now relaxed and got more 50XP!\n";
+    cout << "==================================\n";
+    tamagotchi.increaseXp(50);
+    return 0;
+}
 
+int UI::makeTamagotchiEnjoyMusic()
+{
+    int xp = tamagotchi.getXp();
+    string name = tamagotchi.getName();
+    if (xp >= 200)
+    {
+        cout << teen_tamagotchi_listening_to_music;
+    }
+    else if (xp >= 100)
+    {
+        cout << child_tamagotchi_listening_to_music;
+    }
+    else
+    {
+        cout << baby_tamagotchi_listening_to_music;
+    }
+
+    system("cls");
     cout << "\'" << name << "\' is now relaxed and got more 50XP!\n";
     cout << "==================================\n";
     tamagotchi.increaseXp(50);
