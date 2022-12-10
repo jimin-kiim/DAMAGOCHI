@@ -29,9 +29,9 @@ const string UI::baby_tamagotchi_sleeping = "\
 const string UI::child_tamagotchi = "\
             \n\
            ________ \n\
-         /          \\\n\
-        |っ ‘ ᵕ ‘ C |  \n\
-        |           | \n\
+         / ~~~~     \\\n\
+        |   0   0   |  \n\
+        |     U     | \n\
         |           | \n\
          \\_________/  \n\
             \n";
@@ -39,9 +39,9 @@ const string UI::child_tamagotchi = "\
 const string UI::child_tamagotchi_sleeping = "\
             \n\
            ________ \n\
-         /          \\...zzZ\n\
-        |っ ᴗ˳ᴗ   C |  Sleeping ...\n\
-        |           | \n\
+         / ~~~~~    \\...zzZ\n\
+        |   U  U    |  Sleeping ...\n\
+        |    U      | \n\
         |           | \n\
          \\_________/  \n\
             \n";
@@ -49,9 +49,9 @@ const string UI::child_tamagotchi_sleeping = "\
 const string UI::teen_tamagotchi = "\
             \n\
             _______ \n\
-          /         \\\n\
-         |   •‿•    |  \n\
-        ┏|          |┛ \n\
+          /  #####  \\\n\
+         |   @ @    |  \n\
+         |    O     |  \n\
          |          | \n\
           \\________/  \n\
             \n";
@@ -59,9 +59,9 @@ const string UI::teen_tamagotchi = "\
 const string UI::teen_tamagotchi_sleeping = "\
             \n\
             _______ \n\
-          /         \\...zzZ\n\
-         |   ᴗ˳ᴗ    |  Sleeping ...\n\
-        ┏|          |┛ \n\
+          /  ##### \\...zzZ\n\
+         |   U U    |  Sleeping ...\n\
+         |    O     | \n\
          |          | \n\
           \\________/  \n\
             \n";
@@ -207,7 +207,7 @@ int UI::makeTamagotchiGoToBed()
      Sleep(1000);
      cout << "...zzZ\n";
      Sleep(1000);
-    cout << "\'"<< name << "\' woke up! (　＾∇＾)\n";
+    cout << "\'"<< name << "\' woke up! :D \n";
     Sleep(1000);
 
     cout << "\'" << name << "\' is now relaxed and got more 50XP!\n";
