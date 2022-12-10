@@ -11,7 +11,6 @@ struct Resource
 {
     string word;
     vector<string> hints;
-    // Resource(string _word, vector<string> _hints) : word(_word), hints(_hints){};
 } typedef Resource;
 
 class StudyingGame
@@ -19,8 +18,6 @@ class StudyingGame
 private:
     int score;
     vector<Resource> words;
-
-    // vector<Resource>  words = {{"cat", {"This is an animal.", "It's fluffy.", "It's a popular pet."}}};
 
 public:
     StudyingGame();

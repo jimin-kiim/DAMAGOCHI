@@ -1,6 +1,6 @@
 #include <iostream>
-#include <unistd.h> // 맥
-// #include <windows.h> // 윈도우
+// #include <unistd.h> // 맥
+#include <windows.h> // 윈도우
 #define MULTILINE_STRING(s) #s
 #include "ui.h"
 #include "tamagotchi.h"
@@ -201,24 +201,29 @@ void UI::showMainView()
         cout << "5. Play Studying Game with " << name << "\n";
         cout << "6. exit \n";
         cout << "==================================\n";
+
         int user_input;
         cout << "What are you going to do ? >> ";
         cin >> user_input;
         system("cls");
+
         switch (user_input)
         {
         case INTRODUCTION:
             cout << "==================================\n";
             introduce();
             break;
+
         case FEED:
             cout << "==================================\n";
             feedTamagotchi();
             break;
+
         case SLEEP:
             cout << "==================================\n";
             makeTamagotchiGoToBed();
             break;
+
         case MUSIC:
             cout << "==================================\n";
             makeTamagotchiEnjoyMusic();
@@ -228,9 +233,11 @@ void UI::showMainView()
             cout << "==================================\n";
             playStudyingGame();
             break;
+
         case EXIT:
             flag = 0;
             break;
+
         default:
             cout << "==================================\n";
             cout << "Wrong Input \n";
@@ -259,15 +266,15 @@ void UI::introduce()
 {
     string name = tamagotchi.getName();
     cout << "   Hello! my name is " << name << endl;
-    //  Sleep(1000);
-    sleep(1);
+    Sleep(1000);
+    // sleep(1);
     cout << "   " << tamagotchi.getIntroduction() << endl;
-    // Sleep(1000);
-    sleep(1);
+    Sleep(1000);
+    // sleep(1);
     cout << "   My xp is " << tamagotchi.getXp() << ". Please grow me up!\n"
          << endl;
-    //  Sleep(1000);
-    sleep(1);
+    Sleep(1000);
+    // sleep(1);
 
     cout << "\'" << name << "\' got more 50XP!\n";
     cout << "==================================\n";
@@ -276,19 +283,19 @@ void UI::introduce()
 
 int UI::feedTamagotchi()
 {
-    // GamePage gamepage;
-    // gamepage.gameStart();
-    // int score = gamepage.getScore();
-    // string name = tamagotchi.getName();
-    // cout << "==================================\n";
-    // Sleep(1000);
-    // // sleep(1);
-    // cout << "\'" << name << "\' scored " << score << "\n";
-    // Sleep(1000);
-    // // sleep(1);
-    // cout << "\'" << name << "\' increased " << score/10 << "XP\n";
-    // cout << "==================================\n";
-    // tamagotchi.increaseXp(score / 10);
+    GamePage gamepage;
+    gamepage.gameStart();
+    int score = gamepage.getScore();
+    string name = tamagotchi.getName();
+    cout << "==================================\n";
+    Sleep(1000);
+    // sleep(1);
+    cout << "\'" << name << "\' scored " << score << "\n";
+    Sleep(1000);
+    // sleep(1);
+    cout << "\'" << name << "\' increased " << score / 10 << "XP\n";
+    cout << "==================================\n";
+    tamagotchi.increaseXp(score / 10);
     return 0;
 }
 
@@ -309,17 +316,17 @@ int UI::makeTamagotchiGoToBed()
         cout << baby_tamagotchi_sleeping;
     }
     cout << "...zzZ\n";
-    // Sleep(1000); // 윈도우에서 할 땐 Sleep(1000); 맥에선 sleep(1);으로 작성해주셔야 합니다 !
-    sleep(1);
+    Sleep(1000); // 윈도우에서 할 땐 Sleep(1000); 맥에선 sleep(1);으로 작성해주셔야 합니다 !
+    // sleep(1);
     cout << "...zzZ\n";
-    //  Sleep(1000);
-    sleep(1);
+    Sleep(1000);
+    // sleep(1);
     cout << "...zzZ\n";
-    //  Sleep(1000);
-    sleep(1);
+    Sleep(1000);
+    // sleep(1);
     cout << "\'" << name << "\' woke up! :D \n";
-    // Sleep(1000);
-    sleep(1);
+    Sleep(1000);
+    // sleep(1);
     system("cls");
     cout << "\'" << name << "\' is now relaxed and got more 50XP!\n";
     cout << "==================================\n";
@@ -334,39 +341,39 @@ int UI::makeTamagotchiEnjoyMusic()
     if (xp >= 200)
     {
         cout << teen_tamagotchi_listening_to_music1;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << teen_tamagotchi_listening_to_music2;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << teen_tamagotchi_listening_to_music1;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << teen_tamagotchi_listening_to_music2;
     }
     else if (xp >= 100)
     {
         cout << child_tamagotchi_listening_to_music1;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << child_tamagotchi_listening_to_music2;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << child_tamagotchi_listening_to_music1;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << child_tamagotchi_listening_to_music2;
     }
     else
     {
         cout << baby_tamagotchi_listening_to_music1;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << baby_tamagotchi_listening_to_music2;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << baby_tamagotchi_listening_to_music1;
-        //  Sleep(1000);
+        Sleep(1000);
         system("cls");
         cout << baby_tamagotchi_listening_to_music2;
     }
