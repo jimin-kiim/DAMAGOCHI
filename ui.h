@@ -15,13 +15,16 @@ private:
   };
   static const string baby_tamagotchi;
   static const string baby_tamagotchi_sleeping;
-  static const string baby_tamagotchi_listening_to_music;
+  static const string baby_tamagotchi_listening_to_music1;
+  static const string baby_tamagotchi_listening_to_music2;
   static const string child_tamagotchi;
   static const string child_tamagotchi_sleeping;
-  static const string child_tamagotchi_listening_to_music;
+  static const string child_tamagotchi_listening_to_music1;
+  static const string child_tamagotchi_listening_to_music2;
   static const string teen_tamagotchi;
   static const string teen_tamagotchi_sleeping;
-  static const string teen_tamagotchi_listening_to_music;
+  static const string teen_tamagotchi_listening_to_music1;
+  static const string teen_tamagotchi_listening_to_music2;
 
 public:
   UI(){};

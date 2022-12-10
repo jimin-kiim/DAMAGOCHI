@@ -31,7 +31,7 @@ const string UI::baby_tamagotchi_sleeping = "\
 ==================================\n\
             \n";
 
-const string UI::baby_tamagotchi_listening_to_music = "\
+const string UI::baby_tamagotchi_listening_to_music1 = "\
             \n\
             \n\
            ____ \n\
@@ -39,6 +39,17 @@ const string UI::baby_tamagotchi_listening_to_music = "\
         |       |            ♪\n\
         |       | ♫\n\
          \\_____/    ♬\n\
+==================================\n\
+            \n";
+
+const string UI::baby_tamagotchi_listening_to_music2 = "\
+            \n\
+                       ♬\n\
+           ____ \n\
+    ♩     /     \\         \n\
+         |       |   ♪         \n\
+         |       |        ♫\n\
+          \\_____/    \n\
 ==================================\n\
             \n";
 
@@ -66,7 +77,7 @@ const string UI::child_tamagotchi_sleeping = "\
 ==================================\n\
             \n";
 
-const string UI::child_tamagotchi_listening_to_music = "\
+const string UI::child_tamagotchi_listening_to_music1 = "\
             \n\
             \n\
            ________ \n\
@@ -75,6 +86,17 @@ const string UI::child_tamagotchi_listening_to_music = "\
         |           | \n\
         |           | ♫\n\
          \\_________/    ♬\n\
+==================================\n\
+            \n";
+const string UI::child_tamagotchi_listening_to_music2 = "\
+            \n\
+                           ♪\n\
+           ________ \n\
+         /          \\ ♩\n\
+        |っ ‘ ᵕ ‘  C |        \n\
+        |           | \n\
+        |           |           ♫\n\
+         \\_________/       ♬\n\
 ==================================\n\
             \n";
 
@@ -101,7 +123,17 @@ const string UI::teen_tamagotchi_sleeping = "\
 ==================================\n\
             \n";
 
-const string UI::teen_tamagotchi_listening_to_music = "\
+const string UI::teen_tamagotchi_listening_to_music1 = "\
+            \n\
+            _______    ♩\n\
+          /         \\    \n\
+         |   •‿•    | ♪      \n\
+        ┏|          |┛ \n\
+         |          |           ♫\n\
+          \\________/        ♬\n\
+==================================\n\
+            \n";
+const string UI::teen_tamagotchi_listening_to_music2 = "\
             \n\
             _______ \n\
           /         \\    ♩\n\
@@ -294,15 +326,42 @@ int UI::makeTamagotchiEnjoyMusic()
     string name = tamagotchi.getName();
     if (xp >= 200)
     {
-        cout << teen_tamagotchi_listening_to_music;
+        cout << teen_tamagotchi_listening_to_music1;
+         Sleep(1000);
+         system("cls");
+         cout << teen_tamagotchi_listening_to_music2;
+         Sleep(1000);
+         system("cls");
+         cout << teen_tamagotchi_listening_to_music1;
+         Sleep(1000);
+         system("cls");
+          cout << teen_tamagotchi_listening_to_music2;
     }
     else if (xp >= 100)
     {
-        cout << child_tamagotchi_listening_to_music;
+        cout << child_tamagotchi_listening_to_music1;
+         Sleep(1000);
+         system("cls");
+         cout << child_tamagotchi_listening_to_music2;
+         Sleep(1000);
+         system("cls");
+         cout << child_tamagotchi_listening_to_music1;
+         Sleep(1000);
+         system("cls");
+         cout << child_tamagotchi_listening_to_music2;
     }
     else
     {
-        cout << baby_tamagotchi_listening_to_music;
+        cout << baby_tamagotchi_listening_to_music1;
+         Sleep(1000);
+         system("cls");
+         cout << baby_tamagotchi_listening_to_music2;
+         Sleep(1000);
+         system("cls");
+         cout << baby_tamagotchi_listening_to_music1;
+         Sleep(1000);
+         system("cls");
+          cout << baby_tamagotchi_listening_to_music2;
     }
 
     system("cls");
