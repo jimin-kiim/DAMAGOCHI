@@ -1,9 +1,11 @@
 #include <iostream>
-#include <unistd.h> // 윈도우에서 할 땐 주석 처리해야 합니다. 
-// #include <windows.h> // 윈도우에서 할 땐 주석을 풀어줘야 합니다.
+//#include <unistd.h> // 맥
+#include <windows.h> // 윈도우
 #define MULTILINE_STRING(s) #s
 #include "ui.h"
 #include "tamagotchi.h"
+#include <string>
+#include "GamePage.h"
 using namespace std;
 
 const string UI::baby_tamagotchi = "\
@@ -27,9 +29,9 @@ const string UI::baby_tamagotchi_sleeping = "\
 const string UI::child_tamagotchi = "\
             \n\
            ________ \n\
-         /          \\\n\
-        |っ ‘ ᵕ ‘ C |  \n\
-        |           | \n\
+         / ~~~~     \\\n\
+        |   0   0   |  \n\
+        |     U     | \n\
         |           | \n\
          \\_________/  \n\
             \n";
@@ -37,9 +39,9 @@ const string UI::child_tamagotchi = "\
 const string UI::child_tamagotchi_sleeping = "\
             \n\
            ________ \n\
-         /          \\...zzZ\n\
-        |っ ᴗ˳ᴗ   C |  Sleeping ...\n\
-        |           | \n\
+         / ~~~~~    \\...zzZ\n\
+        |   U  U    |  Sleeping ...\n\
+        |    U      | \n\
         |           | \n\
          \\_________/  \n\
             \n";
@@ -47,9 +49,9 @@ const string UI::child_tamagotchi_sleeping = "\
 const string UI::teen_tamagotchi = "\
             \n\
             _______ \n\
-          /         \\\n\
-         |   •‿•    |  \n\
-        ┏|          |┛ \n\
+          /  #####  \\\n\
+         |   @ @    |  \n\
+         |    O     |  \n\
          |          | \n\
           \\________/  \n\
             \n";
@@ -57,9 +59,9 @@ const string UI::teen_tamagotchi = "\
 const string UI::teen_tamagotchi_sleeping = "\
             \n\
             _______ \n\
-          /         \\...zzZ\n\
-         |   ᴗ˳ᴗ    |  Sleeping ...\n\
-        ┏|          |┛ \n\
+          /  ##### \\...zzZ\n\
+         |   U U    |  Sleeping ...\n\
+         |    O     | \n\
          |          | \n\
           \\________/  \n\
             \n";
@@ -127,7 +129,7 @@ void UI::showMainView()
             introduce();
             break;
         case FEED:
-            cout << "\"2. Feed Tamagotchi\" selected \n";
+            feedTamagotchi();
             break;
         case SLEEP:
             makeTamagotchiGoToBed();
@@ -160,13 +162,27 @@ void UI::drawTamagotchi()
 
 void UI::introduce()
 {
-    cout << "Hello! my name is " << tamagotchi.getName() << endl;
+    string name = tamagotchi.getName();
+    cout << "Hello! my name is " << name << endl;
     cout << tamagotchi.getIntroduction() << endl;
     cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
+
+    cout << "\'" << name << "\' got more 50XP!\n";
+    tamagotchi.increaseXp(50);
+
 }
 
-void UI::feedTamagotchi()
+int UI::feedTamagotchi()
 {
+    cout << "\"2. Feed Tamagotchi\" selected \n";
+    GamePage gamepage;
+    gamepage.gameStart();
+    int score = gamepage.getScore();
+    string name = tamagotchi.getName();
+    cout << "\'" << name << "\' scored " << score << "\n";
+    cout << "\'" << name << "\' increased " << score/10 << "XP\n";
+    tamagotchi.increaseXp(score / 10);
+    return 0;
 }
 
 int UI::makeTamagotchiGoToBed()
@@ -186,12 +202,15 @@ int UI::makeTamagotchiGoToBed()
         cout << baby_tamagotchi_sleeping;
     }
     cout << "...zzZ\n";
-    sleep(1); // 윈도우에서 할 땐 Sleep(3);으로 대문자로 작성해주셔야 합니다 !
+    Sleep(1000); // 윈도우에서 할 땐 Sleep(1000); 맥에선 sleep(1);으로 작성해주셔야 합니다 !
      cout << "...zzZ\n";
-    sleep(1);
+     Sleep(1000);
      cout << "...zzZ\n";
-     sleep(1);
-    cout << "\'"<< name << "\' woke up! (　＾∇＾)\n";
-    sleep(1);
+     Sleep(1000);
+    cout << "\'"<< name << "\' woke up! :D \n";
+    Sleep(1000);
+
+    cout << "\'" << name << "\' is now relaxed and got more 50XP!\n";
+    tamagotchi.increaseXp(50);
     return 0;
 }

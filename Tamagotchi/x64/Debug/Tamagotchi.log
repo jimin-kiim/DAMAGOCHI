@@ -1,0 +1,17 @@
+﻿  GameObject.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\GameObject.cpp': No such file or directory
+  GamePage.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\GamePage.cpp': No such file or directory
+  main.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\main.cpp': No such file or directory
+  ScoreAndLife.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\ScoreAndLife.cpp': No such file or directory
+  tamagotchi.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\tamagotchi.cpp': No such file or directory
+  Throwings.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\Throwings.cpp': No such file or directory
+  Throwings_Gen.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\Throwings_Gen.cpp': No such file or directory
+  ui.cpp
+c1xx : fatal  error C1083: 소스 파일을 열 수 없습니다. '..\..\..\..\Desktop\새 폴더\ui.cpp': No such file or directory
+  코드를 생성하고 있습니다...
