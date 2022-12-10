@@ -17,6 +17,7 @@ public:
     int getXp() { return this->xp; };
     string getName() { return this->name; };
     string getIntroduction() { return this->introduction; };
+    void increaseXp(int xp);
 };
 
 #endif

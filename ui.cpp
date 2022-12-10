@@ -162,9 +162,14 @@ void UI::drawTamagotchi()
 
 void UI::introduce()
 {
-    cout << "Hello! my name is " << tamagotchi.getName() << endl;
+    string name = tamagotchi.getName();
+    cout << "Hello! my name is " << name << endl;
     cout << tamagotchi.getIntroduction() << endl;
     cout << "My xp is " << tamagotchi.getXp() << ". Please grow me up!" << endl;
+
+    cout << "\'" << name << "\' got more 50XP!\n";
+    tamagotchi.increaseXp(50);
+
 }
 
 int UI::feedTamagotchi()
@@ -172,6 +177,11 @@ int UI::feedTamagotchi()
     cout << "\"2. Feed Tamagotchi\" selected \n";
     GamePage gamepage;
     gamepage.gameStart();
+    int score = gamepage.getScore();
+    string name = tamagotchi.getName();
+    cout << "\'" << name << "\' scored " << score << "\n";
+    cout << "\'" << name << "\' increased " << score/10 << "XP\n";
+    tamagotchi.increaseXp(score / 10);
     return 0;
 }
 
@@ -199,5 +209,8 @@ int UI::makeTamagotchiGoToBed()
      Sleep(1000);
     cout << "\'"<< name << "\' woke up! (　＾∇＾)\n";
     Sleep(1000);
+
+    cout << "\'" << name << "\' is now relaxed and got more 50XP!\n";
+    tamagotchi.increaseXp(50);
     return 0;
 }
